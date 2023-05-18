@@ -142,46 +142,21 @@ Thanks
 * **Corey Hall** for Glide's [amazing logo][11].
 * Everyone who has contributed code and reported issues!
 -->
-Author
+<!--Author
 ------
 Sam Judd - @sjudd on GitHub, @samajudd on Twitter
 
 License
 -------
 BSD, part MIT and Apache 2.0. See the [LICENSE][16] file for details.
-
+-->
 <!--Disclaimer
 ---------
 This is not an official Google product.
 
 [1]: https://github.com/bumptech/glide/releases
-[2]: https://github.com/bumptech/glide/wiki
-[3]: https://bumptech.github.io/glide/ref/javadocs.html
-[4]: https://www.jetbrains.com/idea/download/
-[5]: https://github.com/bumptech/glide/blob/master/CONTRIBUTING.md
-[6]: https://groups.google.com/forum/#!forum/glidelibrary
-[7]: https://developers.google.com/open-source/cla/individual
-[8]: https://github.com/JakeWharton/DiskLruCache
-[9]: https://gist.github.com/devunwired/4479231
-[10]: https://github.com/chrisbanes/gradle-mvn-push
-[11]: static/glide_logo.png
-[12]: https://github.com/bumptech/glide/wiki/Integration-Libraries
-[13]: http://webchat.freenode.net/?channels=glide-library
-[14]: https://github.com/bumptech/glide/tree/3.0
-[15]: https://github.com/bumptech/glide/tree/master
-[16]: https://github.com/bumptech/glide/blob/master/LICENSE
-[17]: http://bumptech.github.io/glide/dev/snapshots.html
-[18]: https://github.com/bumptech/glide/issues?q=is%3Aissue+CircleImageView+OR+CircularImageView+OR+RoundedImageView
-[19]: https://github.com/wasabeef/glide-transformations
-[20]: https://bumptech.github.io/glide/
-[22]: https://muyangmin.github.io/glide-docs-cn/
-[23]: http://bumptech.github.io/glide/int/okhttp3.html  
-[24]: http://bumptech.github.io/glide/int/volley.html
-[25]: http://bumptech.github.io/glide/doc/download-setup.html#proguard
-[26]: https://developer.android.com/studio/index.html
-[27]: http://bumptech.github.io/glide/dev/contributing.html
-[28]: http://bumptech.github.io/glide/doc/download-setup.html
- -->
 
+ -->
+[© 1996 - 2023 Extrieve Technologies](https://www.extrieve.com/)
 
 
