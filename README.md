@@ -7,7 +7,7 @@ Download
 --------
 <!--For detailed instructions and requirements, see Glide's [download and setup docs page][28].-->
 
-You can download a jar from GitHub's [releases page][1].
+You can download a .aar library file from GitHub's [releases page][1].
 
 Or use Gradle:
 
