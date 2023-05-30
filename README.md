@@ -158,21 +158,25 @@ This is not an official Google product.
 
  -->
  
- **API  and  integration  Details**
+
+##  API  and  integration  Details
+
 Mainly the SDK will expose two  classes  and  two  supporting  classes :
 
 
- 1. **CameraHelper**  -  Handle the  camera  related  operations. Basically,  an  activity. 
- 2. **ImgHelper**  - Purpose  of  this  class  is  to  handle  all  imaging  related operations
- 3. **CameraSupport**  -  Holds  various configurations  for  camera. 
- 4. **ImgException**  -  Handle  all exceptions  on  Image  related  operations  on ImgHelper.
+ 1. **CameraHelper**  -  *Handle the  camera  related  operations. Basically,  an  activity.* 
+ 2. **ImgHelper**  - *Purpose  of  this  class  is  to  handle  all  imaging  related operations.*
+ 3. **CameraSupport**  -  *Holds  various configurations  for  camera.* 
+ 4. **ImgException**  -  *Handle  all exceptions  on  Image  related  operations  on ImgHelper.*
+ 
 
 Based on the requirement any one or all classes can be used. And need to import those from the  SDK.
-
+```java
     import  com.extrieve.quickcapture.sdk.ImgHelper;  
     import  com.extrieve.quickcapture.sdk.CameraHelper;
     import  com.extrieve.quickcapture.sdk.CameraSupport;  
     import  com.extrieve.quickcapture.sdk.ImgException;
+   ```
 ---
 # CameraHelper
 This  class  will  be  implemented  as  an  activity.  This  class  can  be  initialized  as  intent.
@@ -218,8 +222,6 @@ CameraSupport.CamConfigClass.CamConfigClass  :  contains  various  configuration
 	public static int MaxPage = 0;
 	```
 - **ColorMode**  -  To  Set  the  capture  color  mode-  supporting  color  and  grayscale.
- 
- 
 [© 1996 - 2023 Extrieve Technologies](https://www.extrieve.com/)
 
 
