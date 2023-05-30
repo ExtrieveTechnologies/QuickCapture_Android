@@ -91,7 +91,7 @@ CameraSupport.CamConfigClass.CamConfigClass  :  contains  various  configuration
 
 - **OutputPath** - To set the output directory in which the captured images will be saved.  Base  app should  have  rights  to write  to the  provided  path.
 	```java
-	CameraSupport.CamConfigClass.OutputPath = “pass output path as 	string”;
+	CameraSupport.CamConfigClass.OutputPath = “pass output path as string”;
 	```
 - **MaxPage** - To set the number of captures to do on each camera session. And this can also  control  whether  the  capture  mode  is  single  or  multi  i.e
 	> if  MaxPage  <= 0 /  not  set:  means  unlimited.If  MaxPage  >= 1:
