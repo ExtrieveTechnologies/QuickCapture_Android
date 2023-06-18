@@ -47,10 +47,6 @@ QuickCapture android SDK v 2.1.2
 
 Mainly the SDK will expose two  classes  and  two  supporting  classes :
 
-```java
-    CameraHelper CameraHelper = new CameraHelper();
-```
-
  1. **CameraHelper**  -  *Handle the  camera  related  operations. Basically,  an  activity.* 
  2. **ImgHelper**  - *Purpose  of  this  class  is  to  handle  all  imaging  related operations.*
  3. **CameraSupport**  -  *Holds  various configurations  for  camera.* 
@@ -67,7 +63,9 @@ Based on the requirement any one or all classes can be used. And need to import 
 ---
 ## CameraHelper
 This  class  will  be  implemented  as  an  activity.  This  class  can  be  initialized  as  intent.
-
+```java
+    CameraHelper CameraHelper = new CameraHelper();
+```
 
 ```java
 Intent CameraIntent = new Intent(this,Class.forName("com.extrieve.quickcapture.sdk.CameraHelper"));  UriphotoURI = Uri.parse(CameraSupport.CamConfigClass.OutputPath);
