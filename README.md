@@ -250,6 +250,7 @@ As a part of exceptional error handling **ImgException** class is available.
 
 *License file provided that should keep inside assets folder of main application and call UnlockImagingLibrary from ImgHelper class to unlock the SDK.*
 > **QuickCapture** SDK is absolutely **free** to use.But for image operations on enterprise use cases, license required.
+> [For license details ](https://www.extrieve.com/mobile-document-scanning/)
 
 ```java
 	
