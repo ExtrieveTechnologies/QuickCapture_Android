@@ -5,8 +5,6 @@ QuickCapture Mobile Scanning SDK Specially designed for native ANDROID from Extr
 
 Download
 --------
-<!--For detailed instructions and requirements, see Glide's [download and setup docs page][28].-->
-
 You can download a **.aar** library file from GitHub's [releases page](https://github.com/ExtrieveTechnologies/QuickCapture_Android/releases/).
 
 Or use Gradle:
@@ -19,7 +17,7 @@ repositories {
 }
 
 dependencies {
-  implementation 'com.extrieve.quickcapture:QCv2:2.1.2'
+  implementation 'com.extrieve.quickcapture:QCv2:2.1.3'
 }
 ```
 
@@ -41,7 +39,7 @@ Compatibility
  
 
 
-QuickCapture android SDK v 2.1.2
+QuickCapture android SDK v 2.1.3
 
 ## API  and  integration  Details
 
