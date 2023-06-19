@@ -55,6 +55,8 @@ Mainly the SDK will expose two  classes  and  two  supporting  classes :
 
 Based on the requirement any one or all classes can be used. And need to import those from the  SDK.
 ```java
+    import com.extrieve.quickcapture.sdk.*;
+    //OR : can import only needed classes as per requirements.
     import  com.extrieve.quickcapture.sdk.ImgHelper;  
     import  com.extrieve.quickcapture.sdk.CameraHelper;
     import  com.extrieve.quickcapture.sdk.CameraSupport;  
