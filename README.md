@@ -1,4 +1,4 @@
-Mobile-Document-Scanning-SDK-ANDROID
+Mobile-Document-Scanning-SDK-ANDROID v3
 =====
 QuickCapture Mobile Scanning SDK Specially designed for native ANDROID from Extrieve
 ![](static/glide_logo.png)
