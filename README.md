@@ -47,7 +47,7 @@ Mainly the SDK will expose two  classes  and  two  supporting  classes :
 
  1. **CameraHelper**  -  *Handle the  camera  related  operations. Basically,  an  activity.* 
  2. **ImgHelper**  - *Purpose  of  this  class  is  to  handle  all  imaging  related operations.*
- 3. **CameraSupport**  -  *Holds  various configurations  for  camera.* 
+ 3. **Config**  -  *Holds  various configurations  for  camera.* 
  4. **ImgException**  -  *Handle  all exceptions  on  Image  related  operations  on ImgHelper.*
  
 
