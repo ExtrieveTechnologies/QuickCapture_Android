@@ -28,7 +28,7 @@ Or Maven:
 ```xml
 <dependency>
   <groupId>com.extrieve.quickcapture</groupId>
-  <artifactId>QCv5</artifactId>
+  <artifactId>QCv3</artifactId>
   <version>3.0.5</version>
 </dependency>
 ```
