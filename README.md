@@ -1,4 +1,4 @@
-[Check here for V2 documentation and samples](https://github.com/ExtrieveTechnologies/QuickCapture_Android/tree/QuickCapture-V2#mobile-document-scanning-sdk-android-v2)
+[Click here for V2 documentation and samples](https://github.com/ExtrieveTechnologies/QuickCapture_Android/tree/QuickCapture-V2#mobile-document-scanning-sdk-android-v2)
 
 Mobile-Document-Scanning-SDK-ANDROID v3
 =====
