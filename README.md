@@ -19,7 +19,7 @@ repositories {
 }
 
 dependencies {
-  implementation 'com.extrieve.quickcapture:QCv2:2.1.3'
+  implementation 'com.extrieve.quickcapture:QCv3:3.0.5'
 }
 ```
 
@@ -28,8 +28,8 @@ Or Maven:
 ```xml
 <dependency>
   <groupId>com.extrieve.quickcapture</groupId>
-  <artifactId>QCv2</artifactId>
-  <version>2.1.2</version>
+  <artifactId>QCv5</artifactId>
+  <version>3.0.5</version>
 </dependency>
 ```
 
@@ -41,7 +41,7 @@ Compatibility
  
 
 
-QuickCapture android SDK v 2.1.3
+QuickCapture android SDK v 3.0.5
 
 ## API  and  integration  Details
 
