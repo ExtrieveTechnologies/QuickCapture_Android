@@ -122,7 +122,7 @@ Config.CaptureSupport  :  contains  various  configurations  as  follows:
 	```
 - **CaptureSound**  -  To  Enable  camera  capture  sound.
 	```java
-	CameraSupport.CamConfigClass.CaptureSound  =  true;
+	Config.CaptureSupport.CaptureSound  =  true;
 	```
 - **DeviceInfo**  -  Will  share  all  general  information  about  the  device.
 	```java
