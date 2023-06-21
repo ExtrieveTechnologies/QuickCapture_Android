@@ -81,6 +81,7 @@ This  class  will  be  implemented  as  an  activity.  This  class  can  be  ini
 With an activity call, triggering SDK for capture activity can be done.Most operations in **CameraHelper** is **activity based**.
 
 ```java
+//JAVA
 Intent CameraIntent = new Intent(this,Class.forName("com.extrieve.quickcapture.sdk.CameraHelper"));  UriphotoURI = Uri.parse(Config.CaptureSupport.OutputPath);
 this.grantUriPermission(this.getPackageName(),photoURI,Intent.FLAG_GRANT_WRITE_URI_PERMISSION | Intent.FLAG_GRANT_READ_URI_PERMISSION);  
 if  (Build.VERSION.SDK_INT  <=  Build.VERSION_CODES.LOLLIPOP)  {
@@ -102,6 +103,25 @@ protected  void  onActivityResult(int  requestCode,  int  resultCode,  @Nullable
 	FileCollection  =  (ArrayList<String>)  data.getExtras().get("fileCollection");
 	//FileCollection //: will contains all capture images path as string
 	finishActivity(REQUEST_CODE_FILE_RETURN);
+}
+```
+```java
+//Kotlin
+try {
+    /*DEV_HELP :redirecting to camera*/
+    val captureIntent = Intent(this, Class.forName("com.extrieve.quickcapture.sdk.CameraHelper"))
+    val photoURI = Uri.parse(Config.CaptureSupport.OutputPath)
+    grantUriPermission(
+	this.packageName, photoURI,
+	Intent.FLAG_GRANT_WRITE_URI_PERMISSION or Intent.FLAG_GRANT_READ_URI_PERMISSION
+    )
+    if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.LOLLIPOP) {
+	captureIntent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
+    }
+    captureActivityResultLauncher!!.launch(captureIntent)
+} catch (ex: Exception) {
+    /*DEV_HELP : TODO : handle invalid Exception*/
+    Toast.makeText(this, "Failed to open camera  -" + ex.message, Toast.LENGTH_LONG).show()
 }
 ```
 SDK included a supporting class with static configuration - which includes all configurations related to SDK.Confg contains a sub configuration collection **CaptureSupport** - contains all the Capture & review related configurations.
