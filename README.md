@@ -1,5 +1,5 @@
 
-> *End of support Notice* :  **V1** deprecated by Dec. 2022.For any further updates and support, can use **V2**
+> **End of support Notice** :  **V1** deprecated by Dec. 2022.For any further updates and support, can use **V2**
 > which having no major modifications.But with improved funcionalities,feature additions and fixes.
 
 [Click here for V2 documentation and samples](https://github.com/ExtrieveTechnologies/QuickCapture_Android/tree/QuickCapture-V2#mobile-document-scanning-sdk-android-v2)
