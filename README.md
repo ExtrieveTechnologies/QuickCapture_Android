@@ -1,3 +1,4 @@
+<img class="img-fluid" src="https://github.com/ExtrieveTechnologies/QuickCapture/blob/main/QuickCapture.png?raw=true" width="30%" alt="img-verification">
 
 > **End of support Notice** :  QuickCapture SDK Android **V1** deprecated by Dec. 2022.For any further updates and support, can use **V2**
 > which having no major modifications.But with improved funcionalities,feature additions and fixes.
