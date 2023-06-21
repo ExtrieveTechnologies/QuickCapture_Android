@@ -70,12 +70,12 @@ Based on the requirement any one or all classes can be used. And need to import 
 ## CameraHelper
 This  class  will  be  implemented  as  an  activity.  This  class  can  be  initialized  as  intent.
 ```java
-    //JAVA
-    CameraHelper CameraHelper = new CameraHelper();
+//JAVA
+CameraHelper CameraHelper = new CameraHelper();
 ```
 ```kotlin
-    //Kotlin
-    var cameraHelper: CameraHelper? = CameraHelper()
+//Kotlin
+var cameraHelper: CameraHelper? = CameraHelper()
 ```
 
 With an activity call, triggering SDK for capture activity can be done.Most operations in **CameraHelper** is **activity based**.
