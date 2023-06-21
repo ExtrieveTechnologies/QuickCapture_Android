@@ -23,7 +23,7 @@ repositories {
 }
 
 dependencies {
-  implementation 'com.extrieve.quickcapture:**QCv3:3.0.5**'
+  implementation 'com.extrieve.quickcapture:QCv3:3.0.5'
 }
 ```
 
