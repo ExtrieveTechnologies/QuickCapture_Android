@@ -70,7 +70,12 @@ Based on the requirement any one or all classes can be used. And need to import 
 ## CameraHelper
 This  class  will  be  implemented  as  an  activity.  This  class  can  be  initialized  as  intent.
 ```java
+    //JAVA
     CameraHelper CameraHelper = new CameraHelper();
+```
+```kotlin
+    //Kotlin
+    var cameraHelper: CameraHelper? = CameraHelper()
 ```
 
 ```java
