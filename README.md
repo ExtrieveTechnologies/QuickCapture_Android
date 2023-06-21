@@ -6,6 +6,7 @@
 [Refer here for **V3 documentation** and samples](https://github.com/ExtrieveTechnologies/QuickCapture_Android/tree/QuickCapture-V2#mobile-document-scanning-sdk-android-v3)
 
 Mobile-Document-Scanning-SDK-ANDROID v2
+
 =====
 QuickCapture Mobile Scanning SDK Specially designed for native ANDROID from Extrieve
 ![](static/glide_logo.png)
@@ -24,7 +25,7 @@ repositories {
 }
 
 dependencies {
-  implementation 'com.extrieve.quickcapture:QCv2:2.1.3'
+  implementation 'com.extrieve.quickcapture:QCv3:3.0.5'
 }
 ```
 
@@ -33,29 +34,29 @@ Or Maven:
 ```xml
 <dependency>
   <groupId>com.extrieve.quickcapture</groupId>
-  <artifactId>QCv2</artifactId>
-  <version>2.1.2</version>
+  <artifactId>QCv3</artifactId>
+  <version>3.0.5</version>
 </dependency>
 ```
 
 Compatibility
 -------------
- * **JAVA 8 Support**: QuickCapture v2 requires JAVA version 8 support for the application.
- * **Minimum Android SDK**: QuickCapture v2 requires a minimum API level of 21.
- * **Compile Android SDK**: QuickCapture v2 requires you to compile against API 33 or later.
+ * **JAVA 8 Support**: QuickCapture v3 requires JAVA version 8 support for the application.
+ * **Minimum Android SDK**: QuickCapture v3 requires a minimum API level of 21.
+ * **Compile Android SDK**: QuickCapture v3 requires you to compile against API 33 or later.
  
 
 
-QuickCapture android SDK v 2.1.3
+QuickCapture android SDK v 3.0.5
 
 ## API  and  integration  Details
 
 Mainly the SDK will expose two  classes  and  two  supporting  classes :
 
- 1. **CameraHelper**  -  *Handle the  camera  related  operations. Basically,  an  activity.* 
- 2. **ImgHelper**  - *Purpose  of  this  class  is  to  handle  all  imaging  related operations.*
- 3. **CameraSupport**  -  *Holds  various configurations  for  camera.* 
- 4. **ImgException**  -  *Handle  all exceptions  on  Image  related  operations  on ImgHelper.*
+ 1. **CameraHelper**	-	*Handle the  camera  related  operations. Basically,  an  activity.* 
+ 2. **ImgHelper**	-	*Purpose  of  this  class  is  to  handle  all  imaging  related operations.*
+ 3. **Config**		-	*Holds various configurations SDK.* 
+ 4. **ImgException**	-	*Handle  all exceptions  on  Image  related  operations  on ImgHelper.*
  
 
 Based on the requirement any one or all classes can be used. And need to import those from the  SDK.
@@ -64,18 +65,26 @@ Based on the requirement any one or all classes can be used. And need to import 
     //OR : can import only required classes as per use cases.
     import  com.extrieve.quickcapture.sdk.ImgHelper;  
     import  com.extrieve.quickcapture.sdk.CameraHelper;
-    import  com.extrieve.quickcapture.sdk.CameraSupport;  
+    import  com.extrieve.quickcapture.sdk.Config;  
     import  com.extrieve.quickcapture.sdk.ImgException;
    ```
 ---
 ## CameraHelper
 This  class  will  be  implemented  as  an  activity.  This  class  can  be  initialized  as  intent.
 ```java
-    CameraHelper CameraHelper = new CameraHelper();
+//JAVA
+CameraHelper CameraHelper = new CameraHelper();
+```
+```kotlin
+//Kotlin
+var cameraHelper: CameraHelper? = CameraHelper()
 ```
 
+With an activity call, triggering SDK for capture activity can be done.Most operations in **CameraHelper** is **activity based**.
+
 ```java
-Intent CameraIntent = new Intent(this,Class.forName("com.extrieve.quickcapture.sdk.CameraHelper"));  UriphotoURI = Uri.parse(CameraSupport.CamConfigClass.OutputPath);
+//JAVA
+Intent CameraIntent = new Intent(this,Class.forName("com.extrieve.quickcapture.sdk.CameraHelper"));  UriphotoURI = Uri.parse(Config.CaptureSupport.OutputPath);
 this.grantUriPermission(this.getPackageName(),photoURI,Intent.FLAG_GRANT_WRITE_URI_PERMISSION | Intent.FLAG_GRANT_READ_URI_PERMISSION);  
 if  (Build.VERSION.SDK_INT  <=  Build.VERSION_CODES.LOLLIPOP)  {
 	CameraIntent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
@@ -98,12 +107,31 @@ protected  void  onActivityResult(int  requestCode,  int  resultCode,  @Nullable
 	finishActivity(REQUEST_CODE_FILE_RETURN);
 }
 ```
-Camera Helper having a supporting class with static configuration  
-CameraSupport.CamConfigClass.CamConfigClass  :  contains  various  configurations  as  follows:
+```java
+//Kotlin
+try {
+    /*DEV_HELP :redirecting to camera*/
+    val captureIntent = Intent(this, Class.forName("com.extrieve.quickcapture.sdk.CameraHelper"))
+    val photoURI = Uri.parse(Config.CaptureSupport.OutputPath)
+    grantUriPermission(
+	this.packageName, photoURI,
+	Intent.FLAG_GRANT_WRITE_URI_PERMISSION or Intent.FLAG_GRANT_READ_URI_PERMISSION
+    )
+    if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.LOLLIPOP) {
+	captureIntent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
+    }
+    captureActivityResultLauncher!!.launch(captureIntent)
+} catch (ex: Exception) {
+    /*DEV_HELP : TODO : handle invalid Exception*/
+    Toast.makeText(this, "Failed to open camera  -" + ex.message, Toast.LENGTH_LONG).show()
+}
+```
+SDK included a supporting class with static configuration - which includes all configurations related to SDK.Confg contains a sub configuration collection **CaptureSupport** - contains all the Capture & review related configurations.
+Config.CaptureSupport  :  contains  various  configurations  as  follows:
 
 - **OutputPath** - To set the output directory in which the captured images will be saved.  Base  app should  have  rights  to write  to the  provided  path.
 	```java
-	CameraSupport.CamConfigClass.OutputPath = “pass output path as 	string”;
+	Config.CaptureSupport.OutputPath = "pass output path sd string";
 	```
 - **MaxPage** - To set the number of captures to do on each camera session. And this can also  control  whether  the  capture  mode  is  single  or  multi  i.e
 	> if  MaxPage  <= 0 /  not  set:  means  unlimited.If  MaxPage  >= 1:
@@ -112,63 +140,37 @@ CameraSupport.CamConfigClass.CamConfigClass  :  contains  various  configuration
 	// MaxPage <= 0  : Unlimited Capture Mode  
 	// MaxPage = 1   : Limited Single Capture  
 	// MaxPage > 1   : Limited Multi Capture Mode  
-	public static int MaxPage = 0;
+	Config.CaptureSupport.MaxPage = 0;
 	```
-- **ColorMode**  -  To  Set  the  capture  color  mode-  supporting  color  and  grayscale.
-- **EnableFlash**  -  Enable  Document  capture  specific  flash  control  for  SDK  camera.
+- **ColorMode**  -  To Set the capture color mode - supporting color and grayscale.
 	```java
-	CameraSupport.CamConfigClass.EnableFlash  =  true;
+	Config.CaptureSupport.ColorMode = Config.CaptureSupport.ColorModes.RBG;
+	//RBG (1) - Use capture flow in color mode.
+	//GREY (2) - Use capture flow in grey scale mode.
+	```
+- **EnableFlash**  -  Enable Document capture specific flash control for SDK camera.
+	```java
+	Config.CaptureSupport.EnableFlash  =  true;
 	```
 - **CaptureSound**  -  To  Enable  camera  capture  sound.
 	```java
-	CameraSupport.CamConfigClass.CaptureSound  =  true;
+	Config.CaptureSupport.CaptureSound  =  true;
 	```
 - **DeviceInfo**  -  Will  share  all  general  information  about  the  device.
 	```java
-	CameraSupport.CamConfigClass.DeviceInfo;
+	Config.CaptureSupport.DeviceInfo;
 	```
 - **SDKInfo**  - Contains  all  version  related  information  on  SDK.
 	```java
-	CameraSupport.CamConfigClass.SDKInfo;
+	Config.CaptureSupport.SDKInfo;
 	```
 
-- CameraToggle  -  Toggle  camera  between  front  and  back.
+- **CameraToggle**  -  Toggle  camera  between  front  and  back.
 	```java
-	CameraSupport.CamConfigClass.CameraToggle  =  2;
-	//0-Disable camera toggle option.
-	//1-Enable camera toggle option with Front camera by default.
-	//2-Enable camera toggle option with Back camera  by default.
-	```
-
-- **GetTiffForLastCapture**  -  Build  Tiff  file  output  file  from  last  captured  set  of  images.
-	```java
-	CameraHelper.GetTiffForLastCapture(outPutFileWithpath);
-	//on success, will respond with string : "SUCCESS:::TiffFilePath";
-	//use  ":::"  char.  key  to  split  the  response.
-	//on failure,will respond with string : "FAILED:::Reason for failure";
-	//use ":::" char. key to split the response.
-	//on failure, error details can collect from CameraSupport.CamConfigClass.LastLogInfo
-	```
-- **GetPDFForLastCapture**  -  Build  PDF  file  output  file  from  last  captured  set  of  images.
-	```java
-	CameraHelper.GetPDFForLastCapture(outPutFileWithpath);
-	//on success, will respond with string : "SUCCESS:::PdfFilePath";
-	//use  ":::"  char.  key  to  split  the  response.
-	//on failure,will respond with string : "FAILED:::Reason for failure";
-	//use ":::" char. key to split the response.
-	//on failure, error details can collect from CameraSupport.CamConfigClass.LastLogInfo
-	```
-- **BuildTiff**  -  Build  .tiff  file  output  from  the list  of  images  shared.
-	```java
-	CameraHelper.BuildTiff(ArrayList<String>  ImageCol,  String  OutputTiffFilePath)
-	 *@param  "Image  File  path  collection  as  ArrayList<String>"
-	 *@return  on  failure  =  "FAILED:::REASON"  ||  on  success  =  "SUCCESS:::TIFF  file  path".
-	```
-- **BuildPDF**  -  Build  PDF  file  output  file  from  last  captured  set  of  images.
-	```java
-	CameraHelper.BuildPDF(outPutFileWithpath);
-	*@param  "Image  File  path  collection  as  ArrayList<String>"
-	*@return  on  failure  =  "FAILED:::REASON"  ||  on  success  =  "SUCCESS:::PDF  file  path".
+	 Config.CaptureSupport.CameraToggle = CameraToggleType.ENABLE_BACK_DEFAULT;
+	//DISABLED (0) -Disable camera toggle option.
+	//ENABLE_BACK_DEFAULT (1) -Enable camera toggle option with Front camera by default.
+	//ENABLE_FRONT_DEFAULT (2) -Enable camera toggle option with Back camera  by default.
 	```
 ## ImgHelper
 Following  are  the  options/methods  available  from  class  **ImgHelper** :
@@ -182,9 +184,14 @@ ImgHelper ImageHelper = new ImgHelper(this);
 		3. Compressed_Document.
 		
 	```java
+	//JAVA
 	ImageHelper.SetImageQuality(ImgHelper.ImageQuality.Photo_Quality.ordinal());
 	//OR
 	ImageHelper.SetImageQuality(1);//0,1,2 - Photo_Quality, Document_Quality, Compressed_Document
+	```
+ 	```kotlin
+  	//Kotlin
+	imageHelper!!.SetImageQuality(1)
 	```
 - ***SetPageLayout*** - *Set the Layout for the images generated/processed by the system.*
 	```java
@@ -222,7 +229,7 @@ ImgHelper ImageHelper = new ImgHelper(this);
 - ***CompressToJPEG*** - *This method will Compress the provided bitmap image and will save to given path..*
 	```java
 
-	Boolean Iscompressed = CompressToJPEG(bitmap,outputFilePath);
+	Boolean Iscompressed = ImageHelper.CompressToJPEG(bitmap,outputFilePath);
 	/*
 	Boolean CompressToJPEG(Bitmap bm,String outputFilePath)
 		throws ImgException
@@ -233,12 +240,42 @@ ImgHelper ImageHelper = new ImgHelper(this);
 - ***rotateBitmap*** - *This method will rotate the image to preferred orientation.*
 	 ```java
 
-	Bitmap rotatedBm = rotateBitmapDegree(nBm, RotationDegree);
+	Bitmap rotatedBm = ImageHelper.rotateBitmapDegree(nBm, RotationDegree);
 	/*
 	Bitmap rotateBitmapDegree(Bitmap bitmap,int Degree)
 		throws ImgException
 	*/
-	```	
+	```
+- **GetTiffForLastCapture**  -  Build  Tiff  file  output  file  from  last  captured  set  of  images.
+	```java
+	ImageHelper.GetTiffForLastCapture(outPutFileWithpath);
+	//on success, will respond with string : "SUCCESS:::TiffFilePath";
+	//use  ":::"  char.  key  to  split  the  response.
+	//on failure,will respond with string : "FAILED:::Reason for failure";
+	//use ":::" char. key to split the response.
+	//on failure, error details can collect from CameraSupport.CamConfigClass.LastLogInfo
+	```
+- **GetPDFForLastCapture**  -  Build  PDF  file  output  file  from  last  captured  set  of  images.
+	```java
+	ImageHelper.GetPDFForLastCapture(outPutFileWithpath);
+	//on success, will respond with string : "SUCCESS:::PdfFilePath";
+	//use  ":::"  char.  key  to  split  the  response.
+	//on failure,will respond with string : "FAILED:::Reason for failure";
+	//use ":::" char. key to split the response.
+	//on failure, error details can collect from CameraSupport.CamConfigClass.LastLogInfo
+	```
+- **BuildTiff**  -  Build  .tiff  file  output  from  the list  of  images  shared.
+	```java
+	ImageHelper.BuildTiff(ArrayList<String>  ImageCol,  String  OutputTiffFilePath)
+	 *@param  "Image  File  path  collection  as  ArrayList<String>"
+	 *@return  on  failure  =  "FAILED:::REASON"  ||  on  success  =  "SUCCESS:::TIFF  file  path".
+	```
+- **BuildPDF**  -  Build  PDF  file  output  file  from  last  captured  set  of  images.
+	```java
+	ImageHelper.BuildPDF(outPutFileWithpath);
+	*@param  "Image  File  path  collection  as  ArrayList<String>"
+	*@return  on  failure  =  "FAILED:::REASON"  ||  on  success  =  "SUCCESS:::PDF  file  path".
+	```
 
 ## ImgException 
 As a part of exceptional error handling **ImgException** class is available.
