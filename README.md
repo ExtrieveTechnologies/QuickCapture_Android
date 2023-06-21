@@ -108,7 +108,7 @@ Config.CaptureSupport  :  contains  various  configurations  as  follows:
 	// MaxPage <= 0  : Unlimited Capture Mode  
 	// MaxPage = 1   : Limited Single Capture  
 	// MaxPage > 1   : Limited Multi Capture Mode  
-	public static int MaxPage = 0;
+	Config.CaptureSupport.MaxPage = 0;
 	```
 - **ColorMode**  -  To Set the capture color mode - supporting color and grayscale.
 	```java
