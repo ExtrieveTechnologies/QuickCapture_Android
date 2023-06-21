@@ -1,5 +1,7 @@
 [Click here for V2 documentation and samples](https://github.com/ExtrieveTechnologies/QuickCapture_Android/tree/QuickCapture-V2#mobile-document-scanning-sdk-android-v2)
 
+**V1 is deprecated by 2022.For any further updates and support, can use V2 which having major modifications**
+
 Mobile-Document-Scanning-SDK-ANDROID v3
 =====
 QuickCapture Mobile Scanning SDK Specially designed for native ANDROID from Extrieve
