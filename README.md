@@ -59,7 +59,7 @@ Based on the requirement any one or all classes can be used. And need to import 
     //OR : can import only required classes as per use cases.
     import  com.extrieve.quickcapture.sdk.ImgHelper;  
     import  com.extrieve.quickcapture.sdk.CameraHelper;
-    import  com.extrieve.quickcapture.sdk.CameraSupport;  
+    import  com.extrieve.quickcapture.sdk.Config;  
     import  com.extrieve.quickcapture.sdk.ImgException;
    ```
 ---
