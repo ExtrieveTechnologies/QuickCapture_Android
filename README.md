@@ -104,8 +104,7 @@ protected  void  onActivityResult(int  requestCode,  int  resultCode,  @Nullable
 	finishActivity(REQUEST_CODE_FILE_RETURN);
 }
 ```
-SDK included a a supporting class with static configuration - which includes all configurations related to SDK.
-- Confg contains a sub configuration collection **CaptureSupport** - contains all the Capture & review related configurations.
+SDK included a a supporting class with static configuration - which includes all configurations related to SDK.Confg contains a sub configuration collection **CaptureSupport** - contains all the Capture & review related configurations.
 Config.CaptureSupport  :  contains  various  configurations  as  follows:
 
 - **OutputPath** - To set the output directory in which the captured images will be saved.  Base  app should  have  rights  to write  to the  provided  path.
