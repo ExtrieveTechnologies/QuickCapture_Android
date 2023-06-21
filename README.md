@@ -11,7 +11,7 @@ QuickCapture Mobile Scanning SDK Specially designed for native ANDROID from Extr
 
 Download
 --------
-You can download a **.aar** library file from GitHub's [releases page](https://github.com/ExtrieveTechnologies/QuickCapture_Android/releases/).
+You can download a **.aar** library file from GitHub's [releases page (https://github.com/ExtrieveTechnologies/QuickCapture_IOS/releases).
 
 Or use Gradle:
 
