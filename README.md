@@ -209,7 +209,7 @@ ImgHelper ImageHelper = new ImgHelper(this);
 		throws ImgException
 	*/
 	```
-  - **GetTiffForLastCapture**  -  Build  Tiff  file  output  file  from  last  captured  set  of  images.
+- **GetTiffForLastCapture**  -  Build  Tiff  file  output  file  from  last  captured  set  of  images.
 	```java
 	ImageHelper.GetTiffForLastCapture(outPutFileWithpath);
 	//on success, will respond with string : "SUCCESS:::TiffFilePath";
