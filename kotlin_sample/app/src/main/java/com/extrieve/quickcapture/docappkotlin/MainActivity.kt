@@ -101,7 +101,7 @@ class MainActivity : AppCompatActivity() {
         imageHelper!!.SetDPI(200) //int dpi_val = 100, 150, 200, 300, 500, 600;
 
         //can set output file path
-        CameraSupport.CamConfigClass.OutputPath = buildStoragePath()
+        Config.CaptureSupport.OutputPath = buildStoragePath()
     }
 
     /*DEV_HELP : BuildStoragePath*/
@@ -125,7 +125,7 @@ class MainActivity : AppCompatActivity() {
             val description = data!!.extras!!["DESCRIPTION"] as String?
             if (!status!!) {
                 val imageCaptureLog = "Description : " + description +
-                        ".Exception: " + CameraSupport.CamConfigClass.LastLogInfo
+                        ".Exception: " + Config.CaptureSupport.LastLogInfo
                 Log.d("INFO", imageCaptureLog)
                 Toast.makeText(this, imageCaptureLog, Toast.LENGTH_LONG).show()
                 finishActivity(MainActivity.Companion.REQUEST_CODE_FILE_RETURN)
@@ -172,7 +172,7 @@ class MainActivity : AppCompatActivity() {
         try {
             /*DEV_HELP :redirecting to camera*/
             val captureIntent = Intent(this, Class.forName("com.extrieve.quickcapture.sdk.CameraHelper"))
-            val photoURI = Uri.parse(CameraSupport.CamConfigClass.OutputPath)
+            val photoURI = Uri.parse(Config.CaptureSupport.OutputPath)
             grantUriPermission(
                 this.packageName, photoURI,
                 Intent.FLAG_GRANT_WRITE_URI_PERMISSION or Intent.FLAG_GRANT_READ_URI_PERMISSION

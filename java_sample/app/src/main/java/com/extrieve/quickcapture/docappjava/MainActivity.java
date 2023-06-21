@@ -1,13 +1,5 @@
 package com.extrieve.quickcapture.docappjava;
 
-import androidx.activity.result.ActivityResult;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-
 import android.app.Activity;
 import android.content.ContextWrapper;
 import android.content.Intent;
@@ -17,15 +9,21 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
-import android.provider.Settings;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-/*DEV_HELP : Import SDK from QuickCapture lib with : com.extrieve.quickcapture.sdk.**/
-import com.extrieve.quickcapture.sdk.*;
-import com.extrieve.quickcapture.sdk.CameraSupport.CamConfigClass;
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
+import com.extrieve.quickcapture.sdk.CameraHelper;
+import com.extrieve.quickcapture.sdk.Config;
+import com.extrieve.quickcapture.sdk.ImgHelper;
 
 import java.io.File;
 import java.io.IOException;
@@ -105,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
         ImageHelper.SetDPI(200);//int dpi_val = 100, 150, 200, 300, 500, 600;
 
         //can set output file path
-        CamConfigClass.OutputPath = BuildStoragePath();
+        Config.CaptureSupport.OutputPath = BuildStoragePath();
     }
 
     /*DEV_HELP : BuildStoragePath*/
@@ -130,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
             String Description = (String) data.getExtras().get("DESCRIPTION");
             if (!Status) {
                 String imageCaptureLog = "Description : " + Description +
-                        ".Exception: " + CameraSupport.CamConfigClass.LastLogInfo;
+                        ".Exception: " + Config.CaptureSupport.LastLogInfo;
                 Log.d("INFO", imageCaptureLog);
                 Toast.makeText(this, imageCaptureLog, Toast.LENGTH_LONG).show();
                 finishActivity(REQUEST_CODE_FILE_RETURN);
@@ -175,7 +173,7 @@ public class MainActivity extends AppCompatActivity {
         try {
             /*DEV_HELP :redirecting to camera*/
             Intent CameraIntent = new Intent(this, Class.forName("com.extrieve.quickcapture.sdk.CameraHelper"));
-            Uri photoURI = Uri.parse(CamConfigClass.OutputPath);
+            Uri photoURI = Uri.parse(Config.CaptureSupport.OutputPath);
             this.grantUriPermission(this.getPackageName(), photoURI,
                     Intent.FLAG_GRANT_WRITE_URI_PERMISSION | Intent.FLAG_GRANT_READ_URI_PERMISSION);
             if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.LOLLIPOP) {
