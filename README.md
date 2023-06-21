@@ -182,9 +182,14 @@ ImgHelper ImageHelper = new ImgHelper(this);
 		3. Compressed_Document.
 		
 	```java
+	//JAVA
 	ImageHelper.SetImageQuality(ImgHelper.ImageQuality.Photo_Quality.ordinal());
 	//OR
 	ImageHelper.SetImageQuality(1);//0,1,2 - Photo_Quality, Document_Quality, Compressed_Document
+	```
+ 	```kotlin
+  	//Kotlin
+	imageHelper!!.SetImageQuality(1)
 	```
 - ***SetPageLayout*** - *Set the Layout for the images generated/processed by the system.*
 	```java
