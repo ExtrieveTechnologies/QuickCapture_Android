@@ -111,7 +111,11 @@ Config.CaptureSupport  :  contains  various  configurations  as  follows:
 	public static int MaxPage = 0;
 	```
 - **ColorMode**  -  To Set the capture color mode - supporting color and grayscale.
-- 
+	```java
+	Config.CaptureSupport.ColorMode = Config.CaptureSupport.ColorModes.RBG;
+	//RBG (1) - Use capture flow in color mode.
+	//GREY (2) - Use capture flow in grey scale mode.
+	```
 - **EnableFlash**  -  Enable Document capture specific flash control for SDK camera.
 	```java
 	Config.CaptureSupport.EnableFlash  =  true;
