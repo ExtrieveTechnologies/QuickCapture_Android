@@ -78,7 +78,7 @@ This  class  will  be  implemented  as  an  activity.  This  class  can  be  ini
     var cameraHelper: CameraHelper? = CameraHelper()
 ```
 
-For triggering SDK for capture activity,can be done with activity call.Most operations in CameraHelper is activity based.
+With an activity call, triggering SDK for capture activity can be done.Most operations in **CameraHelper** is **activity based**.
 
 ```java
 Intent CameraIntent = new Intent(this,Class.forName("com.extrieve.quickcapture.sdk.CameraHelper"));  UriphotoURI = Uri.parse(Config.CaptureSupport.OutputPath);
