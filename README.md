@@ -5,6 +5,11 @@
 
 [Refer here for **V2 documentation** and samples](https://github.com/ExtrieveTechnologies/QuickCapture_Android/tree/QuickCapture-V2#mobile-document-scanning-sdk-android-v2)
 
+### Other available platform options
+- [iOS](https://github.com/ExtrieveTechnologies/QuickCapture_IOS)
+- [Fultter Plugin](https://pub.dev/packages/quickcapture)
+- [Web SDK](https://github.com/ExtrieveTechnologies/QuickCapture_WEB)
+
 ## Mobile-Document-Scanning-SDK-ANDROID v3
 QuickCapture Mobile Scanning SDK Specially designed for native ANDROID from Extrieve.
 
