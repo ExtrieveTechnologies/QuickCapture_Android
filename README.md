@@ -86,7 +86,8 @@ With an activity call, triggering SDK for capture activity can be done.Most oper
 
 ```java
 //JAVA
-Intent CameraIntent = new Intent(this,Class.forName("com.extrieve.quickcapture.sdk.CameraHelper"));  UriphotoURI = Uri.parse(Config.CaptureSupport.OutputPath);
+Intent CameraIntent = new Intent(this,Class.forName("com.extrieve.quickcapture.sdk.CameraHelper"));
+UriphotoURI = Uri.parse(Config.CaptureSupport.OutputPath);
 this.grantUriPermission(this.getPackageName(),photoURI,Intent.FLAG_GRANT_WRITE_URI_PERMISSION | Intent.FLAG_GRANT_READ_URI_PERMISSION);  
 if  (Build.VERSION.SDK_INT  <=  Build.VERSION_CODES.LOLLIPOP)  {
 	CameraIntent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
