@@ -1,3 +1,4 @@
+
 <img class="img-fluid" align="center" src="https://github.com/ExtrieveTechnologies/QuickCapture/blob/main/QuickCapture.png?raw=true" width="30%" alt="img-verification"><img align="right" class="img-fluid" padding="10px" src="https://github.com/ExtrieveTechnologies/QuickCapture/blob/main/android.png?raw=true?raw=true" alt="img-verification">
 
 > **End of support Notice** :  QuickCapture SDK Android **V1** deprecated by Dec. 2022.For any further updates and support, can use **V2**
@@ -21,13 +22,13 @@ Or use Gradle:
 
 ```gradle
 repositories {
-  google()
+  google()
   mavenCentral()
   maven {url 'https://expack.extrieve.in/maven/'}
 }
 
 dependencies {
-  implementation 'com.extrieve.quickcapture:QCv3:3.0.5'
+  implementation 'com.extrieve.quickcapture:QCv3:3.0.5'
 }
 ```
 
@@ -137,41 +138,88 @@ Config.CaptureSupport  :  contains  various  configurations  as  follows:
  	//JAVA
 	Config.CaptureSupport.OutputPath = "pass output path sd string";
 	```
+	```kotlin
+ 	//Kotlin
+	Config!!.CaptureSupport!!.OutputPath = "pass output path sd string";
+	```
 - **MaxPage** - To set the number of captures to do on each camera session. And this can also  control  whether  the  capture  mode  is  single  or  multi  i.e
 	> if  MaxPage  <= 0 /  not  set:  means  unlimited.If  MaxPage  >= 1:
 	> means  limited.
 	```java
+	//JAVA
 	// MaxPage <= 0  : Unlimited Capture Mode  
 	// MaxPage = 1   : Limited Single Capture  
 	// MaxPage > 1   : Limited Multi Capture Mode  
 	Config.CaptureSupport.MaxPage = 0;
 	```
+	```java
+	//Kotlin
+	// MaxPage <= 0  : Unlimited Capture Mode  
+	// MaxPage = 1   : Limited Single Capture  
+	// MaxPage > 1   : Limited Multi Capture Mode  
+	Config!!.CaptureSupport!!.MaxPage = 0;
+	```
 - **ColorMode**  -  To Set the capture color mode - supporting color and grayscale.
 	```java
+	//JAVA
 	Config.CaptureSupport.ColorMode = Config.CaptureSupport.ColorModes.RBG;
+	//RBG (1) - Use capture flow in color mode.
+	//GREY (2) - Use capture flow in grey scale mode.
+	```
+	```kotlin
+	//Kotlin
+	Config!!.CaptureSupport!!.ColorMode = Config!!.CaptureSupport!!.ColorModes!!.RBG;
 	//RBG (1) - Use capture flow in color mode.
 	//GREY (2) - Use capture flow in grey scale mode.
 	```
 - **EnableFlash**  -  Enable Document capture specific flash control for SDK camera.
 	```java
+	//JAVA
 	Config.CaptureSupport.EnableFlash  =  true;
+	```
+	```kotlin
+	//Kotlin
+	Config!!.CaptureSupport!!.EnableFlash  =  true;
 	```
 - **CaptureSound**  -  To  Enable  camera  capture  sound.
 	```java
+	//JAVA
 	Config.CaptureSupport.CaptureSound  =  true;
+	```
+	```kotlin
+	//Kotlin
+	Config!!.CaptureSupport!!.CaptureSound  =  true;
 	```
 - **DeviceInfo**  -  Will  share  all  general  information  about  the  device.
 	```java
+	//JAVA
 	Config.CaptureSupport.DeviceInfo;
+	```
+	```kotlin
+	//Kotlin
+	Config!!.CaptureSupport!!.DeviceInfo;
 	```
 - **SDKInfo**  - Contains  all  version  related  information  on  SDK.
 	```java
+	//JAVA
 	Config.CaptureSupport.SDKInfo;
+	```
+	```kotlin
+	//Kotlin
+	Config!!.CaptureSupport!!.SDKInfo;
 	```
 
 - **CameraToggle**  -  Toggle  camera  between  front  and  back.
 	```java
+	//JAVA
 	 Config.CaptureSupport.CameraToggle = CameraToggleType.ENABLE_BACK_DEFAULT;
+	//DISABLED (0) -Disable camera toggle option.
+	//ENABLE_BACK_DEFAULT (1) -Enable camera toggle option with Front camera by default.
+	//ENABLE_FRONT_DEFAULT (2) -Enable camera toggle option with Back camera  by default.
+	```
+	```kotlin
+	//Kotlin
+	 Config!!.CaptureSupport!!.CameraToggle = CameraToggleType!!.ENABLE_BACK_DEFAULT;
 	//DISABLED (0) -Disable camera toggle option.
 	//ENABLE_BACK_DEFAULT (1) -Enable camera toggle option with Front camera by default.
 	//ENABLE_FRONT_DEFAULT (2) -Enable camera toggle option with Back camera  by default.
@@ -190,7 +238,7 @@ ImgHelper ImageHelper = new ImgHelper(this);
 	```java
 	//JAVA
 	ImageHelper.SetImageQuality(ImgHelper.ImageQuality.Photo_Quality.ordinal());
-	//OR
+	//--------------------------
 	ImageHelper.SetImageQuality(1);//0,1,2 - Photo_Quality, Document_Quality, Compressed_Document
 	```
  	```kotlin
@@ -201,7 +249,7 @@ ImgHelper ImageHelper = new ImgHelper(this);
 	```java
  	//JAVA
 	ImageHelper.SetPageLayout(ImgHelper.LayoutType.A4.ordinal());
-	//OR
+	//--------------------------
 	ImageHelper.SetPageLayout(4);//A1-A7(1-7),PHOTO,CUSTOM,ID(8,9,10)
 	```
  	```kotlin
@@ -216,11 +264,11 @@ ImgHelper ImageHelper = new ImgHelper(this);
 	```java
  	//JAVA
 	ImageHelper.SetDPI(ImgHelper.DPI.DPI_200.ordinal());
-	//OR
+	//--------------------------
 	ImageHelper.SetDPI(200);//int dpi_val = 150, 200, 300, 500, 600;
 	```
- 	```kotlin
-  	//Kotlin
+	```kotlin
+	//Kotlin
 	imageHelper!!.SetDPI(200)
 	```
 	 >*Available DPI* : DPI_150, DPI_200, DPI_300, DPI_500, DPI_600
@@ -239,9 +287,10 @@ ImgHelper ImageHelper = new ImgHelper(this);
 	    Boolean AspectRatio )throws ImgException.
 	*/
 	```
- 	```kotlin
-   	//Kotlin
+	```kotlin
+	//KOTLIN
 	var thumb = ImageHelper!!.GetThumbnail(ImageBitmap, 600, 600, true);
+
 	```
 - ***CompressToJPEG*** - *This method will Compress the provided bitmap image and will save to given path..*
 	```java
@@ -327,5 +376,3 @@ boolean UnlockImagingLibrary(String licenseFileData)
 
 	
 [© 1996 - 2023 Extrieve Technologies](https://www.extrieve.com/)
-
-
