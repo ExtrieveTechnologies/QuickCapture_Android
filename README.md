@@ -110,7 +110,7 @@ protected  void  onActivityResult(int  requestCode,  int  resultCode,  @Nullable
 	finishActivity(REQUEST_CODE_FILE_RETURN);
 }
 ```
-```java
+```kotlin
 //Kotlin
 try {
     /*DEV_HELP :redirecting to camera*/
@@ -134,6 +134,7 @@ Config.CaptureSupport  :  contains  various  configurations  as  follows:
 
 - **OutputPath** - To set the output directory in which the captured images will be saved.  Base  app should  have  rights  to write  to the  provided  path.
 	```java
+ 	//JAVA
 	Config.CaptureSupport.OutputPath = "pass output path sd string";
 	```
 - **MaxPage** - To set the number of captures to do on each camera session. And this can also  control  whether  the  capture  mode  is  single  or  multi  i.e
@@ -198,9 +199,14 @@ ImgHelper ImageHelper = new ImgHelper(this);
 	```
 - ***SetPageLayout*** - *Set the Layout for the images generated/processed by the system.*
 	```java
+ 	//JAVA
 	ImageHelper.SetPageLayout(ImgHelper.LayoutType.A4.ordinal());
 	//OR
 	ImageHelper.SetPageLayout(4);//A1-A7(1-7),PHOTO,CUSTOM,ID(8,9,10)
+	```
+ 	```kotlin
+  	//Kotlin
+	imageHelper!!.SetPageLayout(4)
 	```
 	 >*Available layouts* : A1, A2, A3, **A4**, A5, A6, A7,PHOTO & CUSTOM
 	 
@@ -212,7 +218,10 @@ ImgHelper ImageHelper = new ImgHelper(this);
 	//OR
 	ImageHelper.SetDPI(200);//int dpi_val = 150, 200, 300, 500, 600;
 	```
-	
+ 	```kotlin
+  	//Kotlin
+	imageHelper!!.SetDPI(200)
+	```
 	 >*Available DPI* : DPI_150, DPI_200, DPI_300, DPI_500, DPI_600
 	 
 	 *150 & 200 DPI is most used.And 200 DPI recommended for OCR and other image extraction prior to capture.*
