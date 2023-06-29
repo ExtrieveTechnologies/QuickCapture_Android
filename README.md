@@ -214,6 +214,7 @@ ImgHelper ImageHelper = new ImgHelper(this);
 	 
 - ***SetDPI*** - *Set DPI (depth per inch) for the image.*
 	```java
+ 	//JAVA
 	ImageHelper.SetDPI(ImgHelper.DPI.DPI_200.ordinal());
 	//OR
 	ImageHelper.SetDPI(200);//int dpi_val = 150, 200, 300, 500, 600;
@@ -228,7 +229,7 @@ ImgHelper ImageHelper = new ImgHelper(this);
 	 
 - ***GetThumbnail*** - *This method Will build thumbnail for the given image in custom width,height & AspectRatio.*
 	```java
-   
+   	//JAVA
 	Bitmap thumb = ImageHelper.GetThumbnail(ImageBitmap, 600, 600, true);
 	/*
 	Bitmap GetThumbnail(
@@ -237,6 +238,10 @@ ImgHelper ImageHelper = new ImgHelper(this);
 	    int reqWidth,
 	    Boolean AspectRatio )throws ImgException.
 	*/
+	```
+ 	```kotlin
+   	//Kotlin
+	var thumb = ImageHelper!!.GetThumbnail(ImageBitmap, 600, 600, true);
 	```
 - ***CompressToJPEG*** - *This method will Compress the provided bitmap image and will save to given path..*
 	```java
