@@ -229,6 +229,10 @@ Following  are  the  options/methods  available  from  class  **ImgHelper** :
 ```java
 ImgHelper ImageHelper = new ImgHelper(this);
 ```
+```kotlin
+//Kotlin
+var ImageHelper: ImgHelper? = ImgHelper(this)
+```
 - ***SetImageQuality*** - *Set the Quality of the image, Document_Qualityisused.If documents are used further for any automations and OCR, use Document_Quality.*
 	 >*Available Image Qualities* :
 		1. Photo_Quality.
