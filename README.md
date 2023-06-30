@@ -227,6 +227,7 @@ Config.CaptureSupport  :  contains  various  configurations  as  follows:
 ## ImgHelper
 Following  are  the  options/methods  available  from  class  **ImgHelper** :
 ```java
+//JAVA
 ImgHelper ImageHelper = new ImgHelper(this);
 ```
 ```kotlin
