@@ -8,7 +8,6 @@
 Mobile-Document-Scanning-SDK-ANDROID v2
 =====
 QuickCapture Mobile Scanning SDK Specially designed for native ANDROID from Extrieve
-![](static/glide_logo.png)
 
 Download
 --------
@@ -40,7 +39,7 @@ Or Maven:
 
 Compatibility
 -------------
- * **JAVA 8 Support**: QuickCapture v2 requires JAVA version 8 support for the application.
+ * **JAVA 8 Support**: QuickCapture v2 requires JAVA version 7 support for the application.
  * **Minimum Android SDK**: QuickCapture v2 requires a minimum API level of 21.
  * **Compile Android SDK**: QuickCapture v2 requires you to compile against API 33 or later.
  
