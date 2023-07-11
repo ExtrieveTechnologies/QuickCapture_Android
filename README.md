@@ -16,17 +16,17 @@ QuickCapture Mobile Scanning SDK Specially designed for native ANDROID from Extr
 
 Download
 --------
-You can download a **.aar** library file from GitHub's [releases page](https://github.com/ExtrieveTechnologies/QuickCapture_Android/releases/).
-
-Or use Gradle:
+You can use this SDK in project simply by using Gradle :
 
 ```gradle
+//Add expack central repo in **settings.gradle** 
 repositories {
   google()
   mavenCentral()
   maven {url 'https://expack.extrieve.in/maven/'}
 }
 
+//Then add implementation for SDK in dependencies in **build.gradle** *(module:<yourmodulename>)*
 dependencies {
   implementation 'com.extrieve.quickcapture:QCv3:3.0.5'
 }
@@ -41,6 +41,9 @@ Or Maven:
   <version>3.0.5</version>
 </dependency>
 ```
+
+Or even you can download the **.aar** library file from GitHub's [releases page](https://github.com/ExtrieveTechnologies/QuickCapture_Android/releases/) and add the file dependency manually in to the project/app.
+
 
 Compatibility
 -------------
