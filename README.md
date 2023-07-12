@@ -16,7 +16,7 @@ QuickCapture Mobile Scanning SDK Specially designed for native ANDROID from Extr
 
 Download
 --------
-You can use this SDK in project simply by using Gradle :
+You can use this SDK in any android project's simply by using Gradle :
 
 ```gradle
 //Add expack central repo in settings.gradle
