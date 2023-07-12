@@ -19,14 +19,14 @@ Download
 You can use this SDK in project simply by using Gradle :
 
 ```gradle
-//Add expack central repo in **settings.gradle** 
+//Add expack central repo in settings.gradle
 repositories {
   google()
   mavenCentral()
   maven {url 'https://expack.extrieve.in/maven/'}
 }
 
-//Then add implementation for SDK in dependencies in **build.gradle** *(module:<yourmodulename>)*
+//Then add implementation for SDK in dependencies in build.gradle (module:<yourmodulename>)
 dependencies {
   implementation 'com.extrieve.quickcapture:QCv3:3.0.5'
 }
