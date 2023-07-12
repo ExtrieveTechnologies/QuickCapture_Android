@@ -84,6 +84,13 @@ var cameraHelper: CameraHelper? = CameraHelper()
 ```
 
 With an activity call, triggering SDK for capture activity can be done.Most operations in **CameraHelper** is **activity based**.
+SDK having multiple openration flow as follows :
+	
+* **CAMERA_CAPTURE_REVIEW** - *Default flow of the CameraHelper.Includes Capture with SDK Camera -> Review Image.*
+* **SYSTEM_CAMERA_CAPTURE_REVIEW** - *If user need to capture image with system default camera, this can be used.Includes Capture with system default camera -> Review*.
+* **IMAGE_ATTACH_REVIEW** - *If user need to review an image from device / gallery - this option can be used.After attach each image,review and all functionalities depends on review can be avail*.
+
+**CAMERA_CAPTURE_REVIEW**
 
 ```java
 //JAVA
@@ -130,6 +137,63 @@ try {
     Toast.makeText(this, "Failed to open camera  -" + ex.message, Toast.LENGTH_LONG).show()
 }
 ```
+
+**CAMERA_CAPTURE_REVIEW**
+
+```java
+//JAVA
+//Set CaptureMode as CAMERA_CAPTURE_REVIEW
+Config.CaptureSupport.CaptureMode = Config.CaptureSupport.CaptureModes.CAMERA_CAPTURE_REVIEW;
+//set ppermission for output path that set in config.
+UriphotoURI = Uri.parse(Config.CaptureSupport.OutputPath);
+this.grantUriPermission(this.getPackageName(),photoURI,Intent.FLAG_GRANT_WRITE_URI_PERMISSION | Intent.FLAG_GRANT_READ_URI_PERMISSION);  
+
+//Create CameraIntent for CameraHelper activity call.
+Intent CameraIntent = new Intent(this,Class.forName("com.extrieve.quickcapture.sdk.CameraHelper"));
+if  (Build.VERSION.SDK_INT  <=  Build.VERSION_CODES.LOLLIPOP)  {
+	CameraIntent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+}
+//Call the Activity.
+startActivityForResult(CameraIntent,REQUEST_CODE_FILE_RETURN);
+
+//On activity result, recieve the captured, reviewed, cropped, optimised & compressed image colletion as array.
+@Override
+protected  void  onActivityResult(int  requestCode,  int  resultCode,  @Nullable  Intent  data)  
+{
+	super.onActivityResult(requestCode,  resultCode,  data);
+	if  (requestCode  ==  REQUEST_CODE_FILE_RETURN  &&  resultCode  ==  Activity.RESULT_OK)
+	{  
+		Boolean  Status  =  (Boolean)  data.getExtras().get("STATUS");
+		String Description  = (String) data.getExtras().get("DESCRIPTION");  
+		if(Status  == false){  //Failed  to  capture
+		finishActivity(REQUEST_CODE_FILE_RETURN);  return;
+	}
+	FileCollection  =  (ArrayList<String>)  data.getExtras().get("fileCollection");
+	//FileCollection //: will contains all capture images path as string
+	finishActivity(REQUEST_CODE_FILE_RETURN);
+}
+```
+```kotlin
+//Kotlin
+try {
+    /*DEV_HELP :redirecting to camera*/
+    val captureIntent = Intent(this, Class.forName("com.extrieve.quickcapture.sdk.CameraHelper"))
+    val photoURI = Uri.parse(Config.CaptureSupport.OutputPath)
+    grantUriPermission(
+	this.packageName, photoURI,
+	Intent.FLAG_GRANT_WRITE_URI_PERMISSION or Intent.FLAG_GRANT_READ_URI_PERMISSION
+    )
+    if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.LOLLIPOP) {
+	captureIntent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
+    }
+    captureActivityResultLauncher!!.launch(captureIntent)
+} catch (ex: Exception) {
+    /*DEV_HELP : TODO : handle invalid Exception*/
+    Toast.makeText(this, "Failed to open camera  -" + ex.message, Toast.LENGTH_LONG).show()
+}
+```
+
+
 SDK included a supporting class with static configuration - which includes all configurations related to SDK.Confg contains a sub configuration collection **CaptureSupport** - contains all the Capture & review related configurations.
 Config.CaptureSupport  :  contains  various  configurations  as  follows:
 
