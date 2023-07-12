@@ -52,20 +52,17 @@ Compatibility
  * **Compile Android SDK**: QuickCapture v3 requires you to compile against API 33 or later.
  
 
+## API and  integration  Details - Available properties and method
 
-QuickCapture android SDK v 3.0.5
+SDK have two core classes and supporting classes :
 
-## API  and  integration  Details
-
-Mainly the SDK will expose two  classes  and  two  supporting  classes :
-
- 1. **CameraHelper**	-	*Handle the  camera  related  operations. Basically,  an  activity.* 
- 2. **ImgHelper**	-	*Purpose  of  this  class  is  to  handle  all  imaging  related operations.*
+ 1. **CameraHelper**	-	*Handle the  camera  related  operations. Basically, an activity.* 
+ 2. **ImgHelper**	-	*Purpose of this class is to handle all imaging related operations.*
  3. **Config**		-	*Holds various configurations SDK.* 
- 4. **ImgException**	-	*Handle  all exceptions  on  Image  related  operations  on ImgHelper.*
+ 4. **ImgException**	-	*Handle all exceptions on image related operations on ImgHelper.*
  
 
-Based on the requirement any one or all classes can be used. And need to import those from the  SDK.
+Based on the requirement, any one or all classes can be used. And need to import those from the SDK.
 ```java
     import com.extrieve.quickcapture.sdk.*;
     //OR : can import only required classes as per use cases.
@@ -76,7 +73,7 @@ Based on the requirement any one or all classes can be used. And need to import 
    ```
 ---
 ## CameraHelper
-This  class  will  be  implemented  as  an  activity.  This  class  can  be  initialized  as  intent.
+This core class will be implemented as an activity.This class can be initialized as intent.
 ```java
 //JAVA
 CameraHelper CameraHelper = new CameraHelper();
