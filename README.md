@@ -87,11 +87,11 @@ With an activity call, triggering SDK for capture activity can be done.Most oper
 
 SDK having multiple flows as follows :
 	
-* **CAMERA_CAPTURE_REVIEW** - *Default flow of the CameraHelper.Includes Capture with SDK Camera -> Review Image.*
-* **SYSTEM_CAMERA_CAPTURE_REVIEW** - *If user need to capture image with system default camera, this can be used.Includes Capture with system default camera -> Review*.
-* **IMAGE_ATTACH_REVIEW** - *If user need to review an image from device / gallery - this option can be used.After attach each image,review and all functionalities depends on review can be avail*.
+* **CAMERA_CAPTURE_REVIEW** - Default flow. Capture with SDK Camera -> review.
+* **SYSTEM_CAMERA_CAPTURE_REVIEW** - Capture with system default camera -> review.
+* **IMAGE_ATTACH_REVIEW** - Attach/pass image -> review.
 
-**1. CAMERA_CAPTURE_REVIEW**
+**1. CAMERA_CAPTURE_REVIEW** - *Default flow of the CameraHelper.Includes Capture with SDK Camera -> Review Image.*
 
 ```java
 //JAVA
@@ -146,7 +146,7 @@ try {
 }
 ```
 
-**2. SYSTEM_CAMERA_CAPTURE_REVIEW**
+**2. SYSTEM_CAMERA_CAPTURE_REVIEW** - *If user need to capture image with system default camera, this can be used.Includes Capture with system default camera -> Review*.
 
 ```java
 //JAVA
@@ -194,7 +194,7 @@ try {
 }
 ```
 
-**3. IMAGE_ATTACH_REVIEW**
+**3. IMAGE_ATTACH_REVIEW** - *If user need to review an image from device / gallery - this option can be used.After attach each image,review and all functionalities depends on review can be avail*.
 
 ```java
 //JAVA
