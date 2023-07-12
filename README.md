@@ -416,7 +416,7 @@ var ImageHelper: ImgHelper? = ImgHelper(this)
 	 
 - ***GetThumbnail*** - *This method Will build thumbnail for the given image in custom width,height & AspectRatio.*
 	```java
-   	//JAVA
+ 	//JAVA
 	Bitmap thumb = ImageHelper.GetThumbnail(ImageBitmap, 600, 600, true);
 	/*
 	Bitmap GetThumbnail(
@@ -433,6 +433,7 @@ var ImageHelper: ImgHelper? = ImgHelper(this)
 	```
 - ***CompressToJPEG*** - *This method will Compress the provided bitmap image and will save to given path..*
 	```java
+	//JAVA
 
 	Boolean Iscompressed = ImageHelper.CompressToJPEG(bitmap,outputFilePath);
 	/*
@@ -441,18 +442,29 @@ var ImageHelper: ImgHelper? = ImgHelper(this)
 
 	*/
 	```
+ 	```kotlin
+	//KOTLIN
+	var thumb = ImageHelper!!.CompressToJPEG(bitmap, outputFilePath);
+
+	```
 	
 - ***rotateBitmap*** - *This method will rotate the image to preferred orientation.*
 	 ```java
-
+	//JAVA
 	Bitmap rotatedBm = ImageHelper.rotateBitmapDegree(nBm, RotationDegree);
 	/*
 	Bitmap rotateBitmapDegree(Bitmap bitmap,int Degree)
 		throws ImgException
 	*/
 	```
+  	```kotlin
+	//KOTLIN
+	var thumb = ImageHelper!!.rotateBitmapDegree(bitmap, RotationDegree);
+
+	```
 - **GetTiffForLastCapture**  -  Build  Tiff  file  output  file  from  last  captured  set  of  images.
 	```java
+ 	//JAVA
 	ImageHelper.GetTiffForLastCapture(outPutFileWithpath);
 	//on success, will respond with string : "SUCCESS:::TiffFilePath";
 	//use  ":::"  char.  key  to  split  the  response.
@@ -460,8 +472,14 @@ var ImageHelper: ImgHelper? = ImgHelper(this)
 	//use ":::" char. key to split the response.
 	//on failure, error details can collect from CameraSupport.CamConfigClass.LastLogInfo
 	```
+	```kotlin
+	//KOTLIN
+	var thumb = ImageHelper!!.GetTiffForLastCapture(outPutFileWithpath);
+
+	```
 - **GetPDFForLastCapture**  -  Build  PDF  file  output  file  from  last  captured  set  of  images.
 	```java
+ 	//JAVA
 	ImageHelper.GetPDFForLastCapture(outPutFileWithpath);
 	//on success, will respond with string : "SUCCESS:::PdfFilePath";
 	//use  ":::"  char.  key  to  split  the  response.
@@ -469,17 +487,35 @@ var ImageHelper: ImgHelper? = ImgHelper(this)
 	//use ":::" char. key to split the response.
 	//on failure, error details can collect from CameraSupport.CamConfigClass.LastLogInfo
 	```
+ 	```kotlin
+	//KOTLIN
+	var thumb = ImageHelper!!.GetPDFForLastCapture(outPutFileWithpath);
+
+	```
 - **BuildTiff**  -  Build  .tiff  file  output  from  the list  of  images  shared.
 	```java
-	ImageHelper.BuildTiff(ArrayList<String>  ImageCol,  String  OutputTiffFilePath)
-	 *@param  "Image  File  path  collection  as  ArrayList<String>"
+ 	//JAVA
+	ImageHelper.BuildTiff(ImageCol,OutputTiffFilePath)
+	 *@param  "Image File path collection as ArrayList<String>"
+         *@param  "Output Tiff FilePath as String.
 	 *@return  on  failure  =  "FAILED:::REASON"  ||  on  success  =  "SUCCESS:::TIFF  file  path".
+	```
+ 	```kotlin
+	//KOTLIN
+	var thumb = ImageHelper!!.BuildTiff(ImageCol,OutputTiffFilePath);
+
 	```
 - **BuildPDF**  -  Build  PDF  file  output  file  from  last  captured  set  of  images.
 	```java
+	//JAVA
 	ImageHelper.BuildPDF(outPutFileWithpath);
 	*@param  "Image  File  path  collection  as  ArrayList<String>"
 	*@return  on  failure  =  "FAILED:::REASON"  ||  on  success  =  "SUCCESS:::PDF  file  path".
+	```
+	```kotlin
+	//KOTLIN
+	var thumb = ImageHelper!!.BuildPDF(ImageCol,OutputTiffFilePath);
+
 	```
 
 ## ImgException 
