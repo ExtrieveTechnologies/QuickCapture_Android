@@ -100,7 +100,7 @@ class MainActivity : AppCompatActivity() {
         imageHelper!!.SetImageQuality(1) //0,1,2 - Photo_Quality, Document_Quality, Compressed_Document
         imageHelper!!.SetDPI(200) //int dpi_val = 100, 150, 200, 300, 500, 600;
         //imageHelper!!.SetImageQuality(ImgHelper.ImageQuality.Document_Quality)
-        imageHelper!!.setImageQuality(ImgHelper.ImageQuality.Document_Quality.ordinal)
+        imageHelper!!.SetImageQuality(ImgHelper.ImageQuality.Document_Quality.ordinal)
 
 
         //can set output file path
