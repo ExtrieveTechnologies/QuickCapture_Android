@@ -28,7 +28,7 @@ repositories {
 
 //Then add implementation for SDK in dependencies in build.gradle (module:<yourmodulename>)
 dependencies {
-  implementation 'com.extrieve.quickcapture:QCv3:3.0.5'
+  implementation 'com.extrieve.quickcapture:QCv3:3.0.6'
 }
 ```
 
@@ -38,7 +38,7 @@ Or Maven:
 <dependency>
   <groupId>com.extrieve.quickcapture</groupId>
   <artifactId>QCv3</artifactId>
-  <version>3.0.5</version>
+  <version>3.0.6</version>
 </dependency>
 ```
 
@@ -502,9 +502,27 @@ As a part of exceptional error handling **ImgException** class is available.
 > [Click for license details ](https://www.extrieve.com/mobile-document-scanning/)
 
 ```java
+//JAVA
 	
-String licData = readAssetFile("com.extrieve.lic", this);  
+//Read lic asset file locally or provide a file url
+// eg : String licData = readAssetFile("com.extrieve.lic", this);  
+//Pass liscence data to UnlockImagingLibrary method on object(imageHelper) of ImgHelper class.
 Boolean IsUnlocked = ImageHelper.UnlockImagingLibrary(licData)
+
+/*
+boolean UnlockImagingLibrary(String licenseFileData)
+	throws Exception
+*/
+
+```
+
+```kotlin
+//KOTLIN
+
+//Read lic asset file locally or provide a file url
+// eg : String licData = readAssetFile("com.extrieve.lic", this);  
+//Pass liscence data to UnlockImagingLibrary method on object(imageHelper) of ImgHelper class.
+val isUnlocked: Boolean = imageHelper!!.UnlockImagingLibrary(licData)
 
 /*
 boolean UnlockImagingLibrary(String licenseFileData)
