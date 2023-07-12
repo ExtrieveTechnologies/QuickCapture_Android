@@ -96,33 +96,36 @@ SDK having multiple flows as follows :
 
 ```java
 //JAVA
+
 //Set CaptureMode as CAMERA_CAPTURE_REVIEW
 Config.CaptureSupport.CaptureMode = Config.CaptureSupport.CaptureModes.CAMERA_CAPTURE_REVIEW;
-//set ppermission for output path that set in config.
+//set permission for output path that set in config.
 UriphotoURI = Uri.parse(Config.CaptureSupport.OutputPath);
 this.grantUriPermission(this.getPackageName(),photoURI,Intent.FLAG_GRANT_WRITE_URI_PERMISSION | Intent.FLAG_GRANT_READ_URI_PERMISSION);  
 
 //Create CameraIntent for CameraHelper activity call.
 Intent CameraIntent = new Intent(this,Class.forName("com.extrieve.quickcapture.sdk.CameraHelper"));
-if  (Build.VERSION.SDK_INT  <=  Build.VERSION_CODES.LOLLIPOP)  {
+if  (Build.VERSION.SDK_INT <= Build.VERSION_CODES.LOLLIPOP)  {
 	CameraIntent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
 }
 //Call the Activity.
 startActivityForResult(CameraIntent,REQUEST_CODE_FILE_RETURN);
 
-//On activity result, recieve the captured, reviewed, cropped, optimised & compressed image colletion as array.
+//On activity result,recieve the captured, reviewed, cropped, optimised & compressed image colletion as array.
 @Override
-protected  void  onActivityResult(int  requestCode,  int  resultCode,  @Nullable  Intent  data)  
+protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data)  
 {
 	super.onActivityResult(requestCode,  resultCode,  data);
-	if  (requestCode  ==  REQUEST_CODE_FILE_RETURN  &&  resultCode  ==  Activity.RESULT_OK)
+	if  (requestCode == REQUEST_CODE_FILE_RETURN && resultCode == Activity.RESULT_OK)
 	{  
-		Boolean  Status  =  (Boolean)  data.getExtras().get("STATUS");
-		String Description  = (String) data.getExtras().get("DESCRIPTION");  
-		if(Status  == false){  //Failed  to  capture
-		finishActivity(REQUEST_CODE_FILE_RETURN);  return;
+		Boolean Status = (Boolean)data.getExtras().get("STATUS");
+		String Description = (String)data.getExtras().get("DESCRIPTION");  
+		if(Status == false){ 
+			//Failed  to  capture
+		}
+		finishActivity(REQUEST_CODE_FILE_RETURN); return;
 	}
-	FileCollection  =  (ArrayList<String>)  data.getExtras().get("fileCollection");
+	FileCollection = (ArrayList<String>)data.getExtras().get("fileCollection");
 	//FileCollection //: will contains all capture images path as string
 	finishActivity(REQUEST_CODE_FILE_RETURN);
 }
@@ -151,26 +154,36 @@ try {
 
 ```java
 //JAVA
-Intent CameraIntent = new Intent(this,Class.forName("com.extrieve.quickcapture.sdk.CameraHelper"));
+
+//Set CaptureMode as SYSTEM_CAMERA_CAPTURE_REVIEW
+Config.CaptureSupport.CaptureMode = Config.CaptureSupport.CaptureModes.SYSTEM_CAMERA_CAPTURE_REVIEW;
+//set permission for output path that set in config.
 UriphotoURI = Uri.parse(Config.CaptureSupport.OutputPath);
 this.grantUriPermission(this.getPackageName(),photoURI,Intent.FLAG_GRANT_WRITE_URI_PERMISSION | Intent.FLAG_GRANT_READ_URI_PERMISSION);  
-if  (Build.VERSION.SDK_INT  <=  Build.VERSION_CODES.LOLLIPOP)  {
+
+//Create CameraIntent for CameraHelper activity call.
+Intent CameraIntent = new Intent(this,Class.forName("com.extrieve.quickcapture.sdk.CameraHelper"));
+if  (Build.VERSION.SDK_INT <= Build.VERSION_CODES.LOLLIPOP)  {
 	CameraIntent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
 }
+//Call the Activity.
 startActivityForResult(CameraIntent,REQUEST_CODE_FILE_RETURN);
 
+//On activity result,recieve the captured, reviewed, cropped, optimised & compressed image colletion as array.
 @Override
-protected  void  onActivityResult(int  requestCode,  int  resultCode,  @Nullable  Intent  data)  
+protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data)  
 {
 	super.onActivityResult(requestCode,  resultCode,  data);
-	if  (requestCode  ==  REQUEST_CODE_FILE_RETURN  &&  resultCode  ==  Activity.RESULT_OK)
+	if  (requestCode == REQUEST_CODE_FILE_RETURN && resultCode == Activity.RESULT_OK)
 	{  
-		Boolean  Status  =  (Boolean)  data.getExtras().get("STATUS");
-		String Description  = (String) data.getExtras().get("DESCRIPTION");  
-		if(Status  == false){  //Failed  to  capture
-		finishActivity(REQUEST_CODE_FILE_RETURN);  return;
+		Boolean Status = (Boolean)data.getExtras().get("STATUS");
+		String Description = (String)data.getExtras().get("DESCRIPTION");  
+		if(Status == false){ 
+			//Failed  to  capture
+		}
+		finishActivity(REQUEST_CODE_FILE_RETURN); return;
 	}
-	FileCollection  =  (ArrayList<String>)  data.getExtras().get("fileCollection");
+	FileCollection = (ArrayList<String>)data.getExtras().get("fileCollection");
 	//FileCollection //: will contains all capture images path as string
 	finishActivity(REQUEST_CODE_FILE_RETURN);
 }
@@ -199,32 +212,40 @@ try {
 
 ```java
 //JAVA
-Intent CameraIntent = new Intent(this,Class.forName("com.extrieve.quickcapture.sdk.CameraHelper"));
-UriphotoURI = Uri.parse(Config.CaptureSupport.OutputPath);
-this.grantUriPermission(this.getPackageName(),photoURI,Intent.FLAG_GRANT_WRITE_URI_PERMISSION | Intent.FLAG_GRANT_READ_URI_PERMISSION);  
-if  (Build.VERSION.SDK_INT  <=  Build.VERSION_CODES.LOLLIPOP)  {
-	CameraIntent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
-}
-startActivityForResult(CameraIntent,REQUEST_CODE_FILE_RETURN);
 
+//Set CaptureMode as IMAGE_ATTACH_REVIEW
+Config.CaptureSupport.CaptureMode = Config.CaptureSupport.CaptureModes.IMAGE_ATTACH_REVIEW;
+//Create/Convert/ get Image URI from image source.
+Uri ImgUri = data.getData();
+//Create ReviewIntent for CameraHelper activity call.
+Intent ReviewIntent = new Intent(this,Class.forName("com.extrieve.quickcapture.sdk.CameraHelper"));
+//Add the image URI to intent request with a key : ATTACHED_IMAGE.
+ReviewIntent.putExtra("ATTACHED_IMAGE", ImUri);
+//Call the Activity.
+startActivityForResult(ReviewIntent,REQUEST_CODE_FILE_RETURN);
+
+//On activity result,recieve the captured, reviewed, cropped, optimised & compressed image colletion as array.
 @Override
-protected  void  onActivityResult(int  requestCode,  int  resultCode,  @Nullable  Intent  data)  
+protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data)  
 {
 	super.onActivityResult(requestCode,  resultCode,  data);
-	if  (requestCode  ==  REQUEST_CODE_FILE_RETURN  &&  resultCode  ==  Activity.RESULT_OK)
+	if  (requestCode == REQUEST_CODE_FILE_RETURN && resultCode == Activity.RESULT_OK)
 	{  
-		Boolean  Status  =  (Boolean)  data.getExtras().get("STATUS");
-		String Description  = (String) data.getExtras().get("DESCRIPTION");  
-		if(Status  == false){  //Failed  to  capture
-		finishActivity(REQUEST_CODE_FILE_RETURN);  return;
+		Boolean Status = (Boolean)data.getExtras().get("STATUS");
+		String Description = (String)data.getExtras().get("DESCRIPTION");  
+		if(Status == false){ 
+			//Failed  to  capture
+		}
+		finishActivity(REQUEST_CODE_FILE_RETURN); return;
 	}
-	FileCollection  =  (ArrayList<String>)  data.getExtras().get("fileCollection");
+	FileCollection = (ArrayList<String>)data.getExtras().get("fileCollection");
 	//FileCollection //: will contains all capture images path as string
 	finishActivity(REQUEST_CODE_FILE_RETURN);
 }
 ```
 ```kotlin
 //Kotlin
+
 try {
     /*DEV_HELP :redirecting to camera*/
     val captureIntent = Intent(this, Class.forName("com.extrieve.quickcapture.sdk.CameraHelper"))
