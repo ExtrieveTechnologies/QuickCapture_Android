@@ -87,9 +87,9 @@ With an activity call, triggering SDK for capture activity can be done.Most oper
 
 SDK having multiple flows as follows :
 	
-* **CAMERA_CAPTURE_REVIEW** - Default flow. Capture with SDK Camera -> review.
-* **SYSTEM_CAMERA_CAPTURE_REVIEW** - Capture with system default camera -> review.
-* **IMAGE_ATTACH_REVIEW** - Attach/pass image -> review.
+* **CAMERA_CAPTURE_REVIEW** - *Default flow. Capture with SDK Camera **->** review.*
+* **SYSTEM_CAMERA_CAPTURE_REVIEW** - *Capture with system default camera **->** review.*
+* **IMAGE_ATTACH_REVIEW** - *Attach/pass image **->** review.*
   
 
 **1. CAMERA_CAPTURE_REVIEW** - *Default flow of the CameraHelper.Includes Capture with SDK Camera -> Review Image.*
