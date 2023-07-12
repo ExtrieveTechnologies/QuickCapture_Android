@@ -502,9 +502,27 @@ As a part of exceptional error handling **ImgException** class is available.
 > [Click for license details ](https://www.extrieve.com/mobile-document-scanning/)
 
 ```java
+//JAVA
 	
-String licData = readAssetFile("com.extrieve.lic", this);  
+//Read lic asset file locally or provide a file url
+// eg : String licData = readAssetFile("com.extrieve.lic", this);  
+//Pass liscence data to UnlockImagingLibrary  
 Boolean IsUnlocked = ImageHelper.UnlockImagingLibrary(licData)
+
+/*
+boolean UnlockImagingLibrary(String licenseFileData)
+	throws Exception
+*/
+
+```
+
+```kotlin
+//KOTLIN
+
+//Read lic asset file locally or provide a file url
+// eg : String licData = readAssetFile("com.extrieve.lic", this);  
+//Pass liscence data to UnlockImagingLibrary
+val isUnlocked: Boolean = ImageHelper.UnlockImagingLibrary(licData)
 
 /*
 boolean UnlockImagingLibrary(String licenseFileData)
