@@ -84,7 +84,8 @@ var cameraHelper: CameraHelper? = CameraHelper()
 ```
 
 With an activity call, triggering SDK for capture activity can be done.Most operations in **CameraHelper** is **activity based**.
-SDK having multiple openration flow as follows :
+
+SDK having multiple flows as follows :
 	
 * **CAMERA_CAPTURE_REVIEW** - *Default flow of the CameraHelper.Includes Capture with SDK Camera -> Review Image.*
 * **SYSTEM_CAMERA_CAPTURE_REVIEW** - *If user need to capture image with system default camera, this can be used.Includes Capture with system default camera -> Review*.
