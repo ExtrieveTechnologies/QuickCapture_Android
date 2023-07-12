@@ -91,7 +91,7 @@ SDK having multiple flows as follows :
 * **SYSTEM_CAMERA_CAPTURE_REVIEW** - *If user need to capture image with system default camera, this can be used.Includes Capture with system default camera -> Review*.
 * **IMAGE_ATTACH_REVIEW** - *If user need to review an image from device / gallery - this option can be used.After attach each image,review and all functionalities depends on review can be avail*.
 
-**CAMERA_CAPTURE_REVIEW**
+**1. CAMERA_CAPTURE_REVIEW**
 
 ```java
 //JAVA
@@ -146,7 +146,7 @@ try {
 }
 ```
 
-**SYSTEM_CAMERA_CAPTURE_REVIEW**
+**2. SYSTEM_CAMERA_CAPTURE_REVIEW**
 
 ```java
 //JAVA
@@ -194,7 +194,7 @@ try {
 }
 ```
 
-**IMAGE_ATTACH_REVIEW**
+**3. IMAGE_ATTACH_REVIEW**
 
 ```java
 //JAVA
