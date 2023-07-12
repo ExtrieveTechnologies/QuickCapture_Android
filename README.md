@@ -506,7 +506,7 @@ As a part of exceptional error handling **ImgException** class is available.
 	
 //Read lic asset file locally or provide a file url
 // eg : String licData = readAssetFile("com.extrieve.lic", this);  
-//Pass liscence data to UnlockImagingLibrary  
+//Pass liscence data to UnlockImagingLibrary method on object(imageHelper) of ImgHelper class.
 Boolean IsUnlocked = ImageHelper.UnlockImagingLibrary(licData)
 
 /*
@@ -521,8 +521,8 @@ boolean UnlockImagingLibrary(String licenseFileData)
 
 //Read lic asset file locally or provide a file url
 // eg : String licData = readAssetFile("com.extrieve.lic", this);  
-//Pass liscence data to UnlockImagingLibrary
-val isUnlocked: Boolean = ImageHelper.UnlockImagingLibrary(licData)
+//Pass liscence data to UnlockImagingLibrary method on object(imageHelper) of ImgHelper class.
+val isUnlocked: Boolean = imageHelper!!.UnlockImagingLibrary(licData)
 
 /*
 boolean UnlockImagingLibrary(String licenseFileData)
