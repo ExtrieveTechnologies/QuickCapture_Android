@@ -28,7 +28,7 @@ repositories {
 
 //Then add implementation for SDK in dependencies in build.gradle (module:<yourmodulename>)
 dependencies {
-  implementation 'com.extrieve.quickcapture:QCv3:3.0.6'
+  implementation 'com.extrieve.quickcapture:QCv3:3.0.7'
 }
 ```
 
@@ -38,7 +38,7 @@ Or Maven:
 <dependency>
   <groupId>com.extrieve.quickcapture</groupId>
   <artifactId>QCv3</artifactId>
-  <version>3.0.6</version>
+  <version>3.0.7</version>
 </dependency>
 ```
 
@@ -49,7 +49,7 @@ Compatibility
 -------------
  * **JAVA 8 Support**: QuickCapture v3 requires JAVA version 8 support for the application.
  * **Minimum Android SDK**: QuickCapture v3 requires a minimum API level of 21.
- * **Compile Android SDK**: QuickCapture v3 requires you to compile against API 33 or later.
+ * **Compile Android SDK**: QuickCapture v3 compiled against API 34 or later.
  
 
 ## API and  integration  Details - Available properties and method
