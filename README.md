@@ -1,5 +1,11 @@
 <img class="img-fluid" align="center" src="https://github.com/ExtrieveTechnologies/QuickCapture/blob/main/QuickCapture.png?raw=true" width="30%" alt="img-verification"><img align="right" class="img-fluid" padding="10px" src="https://github.com/ExtrieveTechnologies/QuickCapture/blob/main/android.png?raw=true?raw=true" alt="img-verification">
 
+> **QuickCapture** : "It's not just a scanning SDK.It's a document scanner SDK for **Best Quality**, **Highest Possible Compression**".
+
+*Choose the version that suits your needs*. **QuickCapture SDK**
+- QuickCapture v3: SDK with comprehensive functionality, but larger in size. [Arround 20 MB]
+- QuickCapture v2: SDK with complete functionality, designed to be as compact as possible. [Arround 2 MB]
+
 > **End of support Notice** :  QuickCapture SDK Android **V1** deprecated by Dec. 2022.For any further updates and support, can use **V2**
 > which having no major modifications.But with improved funcionalities,feature additions and fixes.
 
