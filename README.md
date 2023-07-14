@@ -1,9 +1,11 @@
 
 <img class="img-fluid" align="center" src="https://github.com/ExtrieveTechnologies/QuickCapture/blob/main/QuickCapture.png?raw=true" width="30%" alt="img-verification"><img align="right" class="img-fluid" padding="10px" src="https://github.com/ExtrieveTechnologies/QuickCapture/blob/main/android.png?raw=true?raw=true" alt="img-verification">
 ## Document Scanning-Capture SDK ANDROID v3
-QuickCapture Mobile Scanning SDK Specially designed for native ANDROID from Extrieve.
+QuickCapture Mobile Scanning SDK Specially designed for native ANDROID from [Extrieve](https://www.extrieve.com/).
 
-> It's not "just" a scanning SDK.It's a "document" scanning/capture SDK evolved with **Best Quality**, **Highest Possible Compression** **Image Optimisation** , **Developer-friendly** & **Easy integration** in mind.
+> It's not "just" a scanning SDK. It's a "document" scanning/capture SDK evolved with **Best Quality**, **Highest Possible Compression**, **Image Optimisation**, of output document in mind.
+
+> **Developer-friendly** & **Easy to integration** SDK.
 
 *Choose the **right** version that suits your needs* :
 - [**QuickCapture v2**](https://github.com/ExtrieveTechnologies/QuickCapture_Android/tree/QuickCapture-V2): With **most** functionality, designed to be as compact as possible. [~ **2 MB**]
