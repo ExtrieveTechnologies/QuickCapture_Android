@@ -8,9 +8,8 @@ QuickCapture Mobile Scanning SDK Specially designed for native ANDROID from [Ext
 > **Developer-friendly** & **Easy to integration** SDK.
 
 *Choose the **right** version that suits your needs* :
-- [**QuickCapture v3**](https://github.com/ExtrieveTechnologies/QuickCapture_Android/tree/QuickCapture-V3): Comprehensive & advanced **AI** functionality, but **comparatively bit** larger in size. [Arround **20 MB**]
-- [**QuickCapture v2**](https://github.com/ExtrieveTechnologies/QuickCapture_Android/tree/QuickCapture-V2#document-scanning-capture-sdk-android-v2): With most functionality, designed to be as compact as possible. [Arround **2 MB**]
-
+- [**QuickCapture v3**](https://github.com/ExtrieveTechnologies/QuickCapture_Android/tree/QuickCapture-V3#document-scanning-capture-sdk-android-v3): Comprehensive & advanced **AI** functionalities, but **comparatively bit** larger size. [~ **20 MB**]
+- [**QuickCapture v2**](https://github.com/ExtrieveTechnologies/QuickCapture_Android/tree/QuickCapture-V2#document-scanning-capture-sdk-android-v2): With **most** functionality, designed to be as compact as possible. [~ **2 MB**]
 
 > **End of support Notice** :  QuickCapture SDK Android **V1** deprecated by Dec. 2022.For any further updates and support, can use **V2**
 > which having no major modifications.But with improved funcionalities,feature additions and fixes.
