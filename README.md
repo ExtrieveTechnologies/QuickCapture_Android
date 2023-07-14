@@ -57,7 +57,7 @@ Compatibility
 -------------
  * **JAVA 8 Support**: QuickCapture v3 requires JAVA version 8 support for the application.
  * **Minimum Android SDK**: QuickCapture v3 requires a minimum API level of 21.
- * **Compile Android SDK**: QuickCapture v3 compiled against API 34 or later.
+ * **Compiled SDK Version**: QuickCapture v3 compiled against **API 34**.
  
 
 ## API and  integration  Details - Available properties and method
