@@ -46,9 +46,9 @@ Or Maven:
 
 Compatibility
 -------------
- * **JAVA 8 Support**: QuickCapture v2 requires JAVA version 7 support for the application.
+ * **JAVA 7 Support**: QuickCapture v2 requires JAVA version 7 support for the application.
  * **Minimum Android SDK**: QuickCapture v2 requires a minimum API level of 21.
- * **Compile Android SDK**: QuickCapture v2 requires you to compile against API 33 or later.
+ * **Compile Android SDK**: QuickCapture v2 compiled against **API 33**.
  
 
 
