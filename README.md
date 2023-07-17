@@ -70,7 +70,7 @@ SDK have two core classes and supporting classes :
  4. **ImgException**	-	*Handle all exceptions on image related operations on ImgHelper.*
  
 
-Based on the requirement, any one or all classes can be used. And need to import those from the SDK.
+Based on the requirement, any one or all classes can be used.And need to import those from the SDK.
 ```java
     import com.extrieve.quickcapture.sdk.*;
     //OR : can import only required classes as per use cases.
@@ -273,9 +273,9 @@ try {
 ```
 ## Confg
 SDK included a supporting class with static configuration - which includes all configurations related to SDK.Confg contains a sub configuration collection **CaptureSupport** - contains all the Capture & review related configurations.
-Config.CaptureSupport  :  contains  various  configurations  as  follows:
+Config.CaptureSupport  :  contains various configurations as follows:
 
-- **OutputPath** - To set the output directory in which the captured images will be saved.  Base  app should  have  rights  to write  to the  provided  path.
+- **OutputPath** - To set the output directory in which the captured images will be saved.Base app should have rights to write to the provided path.
 	```java
  	//JAVA
 	Config.CaptureSupport.OutputPath = "pass output path sd string";
@@ -284,7 +284,7 @@ Config.CaptureSupport  :  contains  various  configurations  as  follows:
  	//Kotlin
 	Config!!.CaptureSupport!!.OutputPath = "pass output path sd string";
 	```
-- **MaxPage** - To set the number of captures to do on each camera session. And this can also  control  whether  the  capture  mode  is  single  or  multi  i.e
+- **MaxPage** - To set the number of captures to do on each camera session. And this can also control whether the capture mode is single  or multi i.e :
 	> if  MaxPage  <= 0 /  not  set:  means  unlimited.If  MaxPage  >= 1:
 	> means  limited.
 	```java
@@ -317,22 +317,22 @@ Config.CaptureSupport  :  contains  various  configurations  as  follows:
 - **EnableFlash**  -  Enable Document capture specific flash control for SDK camera.
 	```java
 	//JAVA
-	Config.CaptureSupport.EnableFlash  =  true;
+	Config.CaptureSupport.EnableFlash = true;
 	```
 	```kotlin
 	//Kotlin
-	Config!!.CaptureSupport!!.EnableFlash  =  true;
+	Config!!.CaptureSupport!!.EnableFlash = true;
 	```
-- **CaptureSound**  -  To  Enable  camera  capture  sound.
+- **CaptureSound**  -  To Enable camera capture sound.
 	```java
 	//JAVA
-	Config.CaptureSupport.CaptureSound  =  true;
+	Config.CaptureSupport.CaptureSound = true;
 	```
 	```kotlin
 	//Kotlin
-	Config!!.CaptureSupport!!.CaptureSound  =  true;
+	Config!!.CaptureSupport!!.CaptureSound = true;
 	```
-- **DeviceInfo**  -  Will  share  all  general  information  about  the  device.
+- **DeviceInfo** - Will share all general information about the device.
 	```java
 	//JAVA
 	Config.CaptureSupport.DeviceInfo;
@@ -341,7 +341,7 @@ Config.CaptureSupport  :  contains  various  configurations  as  follows:
 	//Kotlin
 	Config!!.CaptureSupport!!.DeviceInfo;
 	```
-- **SDKInfo**  - Contains  all  version  related  information  on  SDK.
+- **SDKInfo**  - Contains all version related information on SDK.
 	```java
 	//JAVA
 	Config.CaptureSupport.SDKInfo;
@@ -356,18 +356,18 @@ Config.CaptureSupport  :  contains  various  configurations  as  follows:
 	//JAVA
 	 Config.CaptureSupport.CameraToggle = CameraToggleType.ENABLE_BACK_DEFAULT;
 	//DISABLED (0) -Disable camera toggle option.
-	//ENABLE_BACK_DEFAULT (1) -Enable camera toggle option with Front camera by default.
-	//ENABLE_FRONT_DEFAULT (2) -Enable camera toggle option with Back camera  by default.
+	//ENABLE_BACK_DEFAULT (1) - Enable camera toggle option with Front camera by default.
+	//ENABLE_FRONT_DEFAULT (2) - Enable camera toggle option with Back camera  by default.
 	```
 	```kotlin
 	//Kotlin
 	 Config!!.CaptureSupport!!.CameraToggle = CameraToggleType!!.ENABLE_BACK_DEFAULT;
 	//DISABLED (0) -Disable camera toggle option.
-	//ENABLE_BACK_DEFAULT (1) -Enable camera toggle option with Front camera by default.
-	//ENABLE_FRONT_DEFAULT (2) -Enable camera toggle option with Back camera  by default.
+	//ENABLE_BACK_DEFAULT (1) - Enable camera toggle option with Front camera by default.
+	//ENABLE_FRONT_DEFAULT (2) - Enable camera toggle option with Back camera  by default.
 	```
 ## ImgHelper
-Following  are  the  options/methods  available  from  class  **ImgHelper** :
+Following are the options/methods available from class **ImgHelper** :
 ```java
 //JAVA
 ImgHelper ImageHelper = new ImgHelper(this);
@@ -407,7 +407,7 @@ var ImageHelper: ImgHelper? = ImgHelper(this)
 	 
 	*A4 is the most recommended layout for document capture scenarios.*
 	 
-- ***SetDPI*** - *Set DPI (depth per inch) for the image.*
+- ***SetDPI*** - *Set DPI(depth per inch) for the image.*
 	```java
  	//JAVA
 	ImageHelper.SetDPI(ImgHelper.DPI.DPI_200.ordinal());
@@ -470,7 +470,7 @@ var ImageHelper: ImgHelper? = ImgHelper(this)
 	var thumb = ImageHelper!!.rotateBitmapDegree(bitmap, RotationDegree);
 
 	```
-- **GetTiffForLastCapture**  -  Build  Tiff  file  output  file  from  last  captured  set  of  images.
+- **GetTiffForLastCapture** - Build Tiff file output file from last captured set of images.
 	```java
  	//JAVA
 	ImageHelper.GetTiffForLastCapture(outPutFileWithpath);
@@ -500,25 +500,26 @@ var ImageHelper: ImgHelper? = ImgHelper(this)
 	var thumb = ImageHelper!!.GetPDFForLastCapture(outPutFileWithpath);
 
 	```
-- **BuildTiff**  -  Build  .tiff  file  output  from  the list  of  images  shared.
+- **BuildTiff**  - Build .tiff  file  output from the list  of  images shared.
 	```java
  	//JAVA
-	ImageHelper.BuildTiff(ImageCol,OutputTiffFilePath)
-	 *@param  "Image File path collection as ArrayList<String>"
-         *@param  "Output Tiff FilePath as String.
-	 *@return  on  failure  =  "FAILED:::REASON"  ||  on  success  =  "SUCCESS:::TIFF  file  path".
+	ImageHelper.BuildTiff(ImageCol,OutputTiffFilePath);
+	*@param "Image File path collection as ArrayList<String>".
+ 	*@param "Output Tiff FilePath as String".
+	*@return on failure = "FAILED:::REASON" || on success = "SUCCESS:::TIFF file path".
 	```
  	```kotlin
 	//KOTLIN
 	var thumb = ImageHelper!!.BuildTiff(ImageCol,OutputTiffFilePath);
 
 	```
-- **BuildPDF**  -  Build  PDF  file  output  file  from  last  captured  set  of  images.
+- **BuildPDF**  - Build PDF file output file from last captured set of images.
 	```java
 	//JAVA
-	ImageHelper.BuildPDF(outPutFileWithpath);
-	*@param  "Image  File  path  collection  as  ArrayList<String>"
-	*@return  on  failure  =  "FAILED:::REASON"  ||  on  success  =  "SUCCESS:::PDF  file  path".
+	ImageHelper.BuildPDF(ImageCol,outPutPDFFileWithpath);
+	*@param  "Image File path collection as ArrayList<String>"
+ 	*@param "Output Tiff FilePath as String".
+	*@return  on failure = "FAILED:::REASON" || on success = "SUCCESS:::PDF file path".
 	```
 	```kotlin
 	//KOTLIN
