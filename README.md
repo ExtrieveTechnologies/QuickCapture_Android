@@ -120,7 +120,13 @@ CameraSupport.CamConfigClass.CamConfigClass  :  contains  various  configuration
 	// MaxPage > 1   : Limited Multi Capture Mode  
 	public static int MaxPage = 0;
 	```
-- **ColorMode**  -  To  Set  the  capture  color  mode-  supporting  color  and  grayscale.
+- **ColorMode**  -  To Set the capture color mode - supporting color and grayscale.
+	```java
+	CameraSupport.CamConfigClass.ColorMode = 1;
+	//RBG (1) - Use capture flow in color mode.
+	//GREY (2) - Use capture flow in grey scale mode.
+	```
+ 
 - **EnableFlash**  -  Enable  Document  capture  specific  flash  control  for  SDK  camera.
 	```java
 	CameraSupport.CamConfigClass.EnableFlash  =  true;
