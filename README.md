@@ -5,7 +5,7 @@ QuickCapture Mobile Scanning SDK Specially designed for native ANDROID from [Ext
 
 > It's not "**just**" a scanning SDK. It's a "**document**" scanning/capture SDK evolved with **Best Quality**, **Highest Possible Compression**, **Image Optimisation**, of output document in mind.
 
->Control DPI,Layout & size of output images
+>Control **DPI**,**Layout** & **size** of output images
 
 > **Developer-friendly** & **Easy to integration** SDK.
 
