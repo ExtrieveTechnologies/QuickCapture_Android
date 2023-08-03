@@ -3,6 +3,8 @@
 ## Document Scanning-Capture SDK ANDROID v3
 QuickCapture Mobile Scanning SDK Specially designed for native ANDROID from [Extrieve](https://www.extrieve.com/).
 
+<a href='https://play.google.com/store/apps/details?id=com.extrieve.exScan&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img width="200px" alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'/></a>
+
 > It's not "**just**" a scanning SDK. It's a "**document**" scanning/capture SDK evolved with **Best Quality**, **Highest Possible Compression**, **Image Optimisation**, of output document in mind.
 
 >Control **DPI**,**Layout** & **Size** of output images
