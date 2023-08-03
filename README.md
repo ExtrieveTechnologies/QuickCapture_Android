@@ -1,9 +1,9 @@
 
 <img class="img-fluid" align="center" src="https://github.com/ExtrieveTechnologies/QuickCapture/blob/main/QuickCapture.png?raw=true" width="30%" alt="img-verification"><img align="right" class="img-fluid" padding="10px" src="https://github.com/ExtrieveTechnologies/QuickCapture/blob/main/android.png?raw=true?raw=true" alt="img-verification">
+
+<a href='https://play.google.com/store/apps/details?id=com.extrieve.exScan&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img width="150px" alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'/></a>
 ## Document Scanning-Capture SDK ANDROID v3
 QuickCapture Mobile Scanning SDK Specially designed for native ANDROID from [Extrieve](https://www.extrieve.com/).
-
-<a href='https://play.google.com/store/apps/details?id=com.extrieve.exScan&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img width="200px" alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'/></a>
 
 > It's not "**just**" a scanning SDK. It's a "**document**" scanning/capture SDK evolved with **Best Quality**, **Highest Possible Compression**, **Image Optimisation**, of output document in mind.
 
@@ -24,7 +24,6 @@ QuickCapture Mobile Scanning SDK Specially designed for native ANDROID from [Ext
 - [iOS](https://github.com/ExtrieveTechnologies/QuickCapture_IOS)
 - [Fultter Plugin](https://pub.dev/packages/quickcapture)
 - [Web SDK](https://github.com/ExtrieveTechnologies/QuickCapture_WEB)
-
 
 Download
 --------
