@@ -6,7 +6,6 @@ import android.content.pm.PackageManager
 import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -15,12 +14,12 @@ import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.extrieve.quickcapture.sdk.*
 import java.io.File
 import java.io.IOException
-
-import com.extrieve.quickcapture.sdk.*;
 
 class MainActivity : AppCompatActivity() {
     /*DEV_HELP : Declare variables for the classes from SDK*/
@@ -101,10 +100,16 @@ class MainActivity : AppCompatActivity() {
         imageHelper!!.SetDPI(200) //int dpi_val = 100, 150, 200, 300, 500, 600;
         //imageHelper!!.SetImageQuality(ImgHelper.ImageQuality.Document_Quality)
         imageHelper!!.SetImageQuality(ImgHelper.ImageQuality.Document_Quality.ordinal)
-
+        //val isUnlocked: Boolean = imageHelper!!.UnlockImagingLibrary(licData)
 
         //can set output file path
         Config.CaptureSupport.OutputPath = buildStoragePath()
+
+        Config.CaptureSupport.DocumentCropping = Config.CaptureSupport.CroppingType.LiveDetection
+
+        Config.CaptureSupport.EnableFlash = true
+
+        Config.CaptureSupport.CropFilter = Config.CaptureSupport.CropImageFilterType.ENHANCE
     }
 
     /*DEV_HELP : BuildStoragePath*/

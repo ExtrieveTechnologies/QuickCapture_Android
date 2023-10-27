@@ -5,14 +5,14 @@ plugins {
 
 android {
     namespace 'com.extrieve.quickcapture.docappkotlin'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.extrieve.quickcapture.docappkotlin"
         minSdk 21
-        targetSdk 33
+        targetSdk 34
         versionCode 1
-        versionName "1.0"
+        versionName "1.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -38,5 +38,5 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.5.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation 'com.extrieve.quickcapture:QCv3:3.0.7'
+    implementation 'com.extrieve.quickcapture:QCv3:3.1.7'
 }
