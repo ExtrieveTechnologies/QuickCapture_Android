@@ -454,7 +454,7 @@ var ImageHelper: ImgHelper? = ImgHelper(this)
 	```
  	```kotlin
 	//KOTLIN
-	var thumb = ImageHelper!!.CompressToJPEG(bitmap, outputFilePath);
+	var Iscompressed = ImageHelper!!.CompressToJPEG(bitmap, outputFilePath);
 
 	```
 	
