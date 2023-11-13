@@ -38,7 +38,7 @@ repositories {
 
 //Then add implementation for SDK in dependencies in build.gradle (module:<yourmodulename>)
 dependencies {
-  implementation 'com.extrieve.quickcapture:QCv3:3.1.7'
+  implementation 'com.extrieve.quickcapture:QCv3:3.1.10'
 }
 ```
 
@@ -48,7 +48,7 @@ Or Maven:
 <dependency>
   <groupId>com.extrieve.quickcapture</groupId>
   <artifactId>QCv3</artifactId>
-  <version>3.1.7</version>
+  <version>3.1.10</version>
 </dependency>
 ```
 
@@ -454,7 +454,7 @@ var ImageHelper: ImgHelper? = ImgHelper(this)
 	```
  	```kotlin
 	//KOTLIN
-	var thumb = ImageHelper!!.CompressToJPEG(bitmap, outputFilePath);
+	var Iscompressed = ImageHelper!!.CompressToJPEG(bitmap, outputFilePath);
 
 	```
 	
