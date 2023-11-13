@@ -30,9 +30,9 @@ android {
 
 dependencies {
 
-    implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.5.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.appcompat:appcompat:1.7.0-alpha03'
+    implementation 'com.google.android.material:material:1.11.0-beta01'
+    implementation 'androidx.constraintlayout:constraintlayout:2.2.0-alpha13'
     /*DEV_HELP : link the preferred SDK version from maven repo by extrieve.*/
-    implementation 'com.extrieve.quickcapture:QCv3:3.1.7'
+    implementation 'com.extrieve.quickcapture:QCv3:3.1.10'
 }

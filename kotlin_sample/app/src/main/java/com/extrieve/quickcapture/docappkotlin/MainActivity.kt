@@ -105,7 +105,7 @@ class MainActivity : AppCompatActivity() {
         //can set output file path
         Config.CaptureSupport.OutputPath = buildStoragePath()
 
-        Config.CaptureSupport.DocumentCropping = Config.CaptureSupport.CroppingType.LiveDetection
+        Config.CaptureSupport.DocumentCropping = Config.CaptureSupport.CroppingType.AutoCapture
 
         Config.CaptureSupport.EnableFlash = true
 
