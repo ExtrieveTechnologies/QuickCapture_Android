@@ -24,11 +24,6 @@ QuickCapture Mobile Scanning SDK Specially designed for native ANDROID from [Ext
 - [Fultter Plugin](https://pub.dev/packages/quickcapture)
 - [Web SDK](https://github.com/ExtrieveTechnologies/QuickCapture_WEB)
 
-*For more insights on our features refer to the below link* :
-
-https://img.youtube.com/vi/TcAb9Wcmwc4&t=79s/hqdefault.jpg
-
-https://www.youtube.com/watch?v=TcAb9Wcmwc4&t=79s
 
 Download
 --------
