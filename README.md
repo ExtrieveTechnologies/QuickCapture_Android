@@ -1,3 +1,4 @@
+
 <img class="img-fluid" align="center" src="https://raw.githubusercontent.com/ExtrieveTechnologies/QuickCapture/main/img/QuickCapture.png" width="30%" alt="img-verification"><img align="right" class="img-fluid" padding="10px" src="https://raw.githubusercontent.com/ExtrieveTechnologies/QuickCapture/main/img/android.png" alt="img-verification">
 <!-- <a align="center" href='https://play.google.com/store/apps/details?id=com.extrieve.exScan&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1' title="Click to download android app" target="_blank" rel="noopener noreferrer"><img align="center" width="150px" alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'/></a> -->
 
@@ -6,7 +7,7 @@
 QuickCapture Mobile Scanning SDK Specially designed for native ANDROID from [Extrieve](https://www.extrieve.com/).
 
 > It's not "**just**" a scanning SDK. It's a "**document**" 
-> scanning/capture SDK evolved with **Best Quality**, **Highest Possible Compression**, **Image Optimisation**, keeping output of the document in mind.
+scanning/capture SDK evolved with **Best Quality**, **Highest Possible Compression**, **Image Optimisation**, keeping output quality of the document in mind.
 
 > Control **DPI**,**Layout** & **Size** of output images and can convert them into **PDF & TIFF**
 
@@ -14,14 +15,9 @@ QuickCapture Mobile Scanning SDK Specially designed for native ANDROID from [Ext
 
 > **Developer-friendly** & **Easy to integrate** SDK.
 
-> **Works entirely offline***, locally on the device, with **no data transferred to any server or third party**.  
+> **Works entirely offline**, locally on the device, with **no data transferred to any server or third party**.  
 
 *For reduced build size if needed, an initial internet connection may optionally be required to fetch ML data or resource files, depending on the specific integration and features used by the consumer application*
-
-*Choose the **right** version that suits your need* :
-- [**QuickCapture v4**](https://github.com/ExtrieveTechnologies/QuickCapture_Android): Comprehensive & advanced **AI** functionalities,**QR Code & BAR Code** Scanning & Generation.
-- [**QuickCapture v3**](https://github.com/ExtrieveTechnologies/QuickCapture_Android/tree/QuickCapture-V3#document-scanning-capture-sdk-android-v3): Comprehensive & advanced **AI** functionalities, **comparatively bit** larger size [~ **20 MB**].
-- [**QuickCapture v2**](https://github.com/ExtrieveTechnologies/QuickCapture_Android/tree/QuickCapture-V2#document-scanning-capture-sdk-android-v2): Optimized capture functionality, designed to be as compact as possible [~ **2 MB**].
 
 > **End of support Notice** :
 > QuickCapture SDK Android **V1** deprecated by Dec. 2022.For any further updates and support, can use **V2**
@@ -29,21 +25,10 @@ QuickCapture Mobile Scanning SDK Specially designed for native ANDROID from [Ext
 > 
 > QuickCapture SDK Android **V2** deprecated by May. 2024.For any further updates and support, can use **V4** & bugfixes on **V3** 
 
-[Refer here for **V2 documentation** and samples](https://github.com/ExtrieveTechnologies/QuickCapture_Android/tree/QuickCapture-V2#mobile-document-scanning-sdk-android-v2)
-[Refer here for **V3 documentation** and samples](https://github.com/ExtrieveTechnologies/QuickCapture_Android/tree/QuickCapture-V2#mobile-document-scanning-sdk-android-v2)
-
-### Other available platform options
-- [iOS](https://github.com/ExtrieveTechnologies/QuickCapture_IOS)
-- [Fultter Plugin](https://pub.dev/packages/quickcapture)
-- [React-Native Plugin](https://pub.dev/packages/quickcapture)
-- [Web SDK](https://github.com/ExtrieveTechnologies/QuickCapture_WEB)
-
-
 Access / Download
 --------
 You can use this SDK in any Android project simply by using Gradle :
-### Latest Release verion : 4.0.12
-*From v4 SDK will not support direct aar file linking - Use maven link instead*
+
 ```java
 //Add expack central repo in settings.gradle
 repositories {
@@ -55,7 +40,7 @@ repositories {
 //Then add implementation for SDK in dependencies in build.gradle (module:<yourmodulename>)
 dependencies {
   implementation 'com.extrieve.quickcapture:QCv4_PLUS:<SDK-VERSION>'
-  // use latest verision : 4.0.12
+  //latest version : 4.1.10
 }
 SDK-VERSION - Need to replace with the correct v4 series.
 ```
@@ -78,8 +63,8 @@ Compatibility
 -------------
  * **JAVA 17 Support**: QuickCapture v4 requires JAVA version 17 support for the application.
  * **Minimum Android SDK**: QuickCapture v4 requires a minimum API level of 21.
- * **Target Android SDK**: QuickCapture v4 features supports **API 34**.
-  * **Compiled SDK Version**: QuickCapture v4 compiled against **API 33**.Host application using this SDK should compiled against 33 or later
+ * **Target Android SDK**: QuickCapture v4 features supports **API 35**.
+  * **Compiled SDK Version**: QuickCapture v4 compiled against **API 34**.Host application using this SDK should compiled against 34 or later
  
 
 # API &  integration  Details 
@@ -493,7 +478,7 @@ var ImageHelper: ImgHelper? = ImgHelper(this)
 	//KOTLIN
 	var thumb = ImageHelper!!.GetThumbnail(ImageBitmap, 600, 600, true);
 	```
-- ***CompressToJPEG*** - *This method will Compress the provided bitmap image and will save to given path.\*
+- ***CompressToJPEG*** - *This method will Compress the provided bitmap image and will save to given path.*
 	```java
 	//JAVA
 	Boolean Iscompressed = ImageHelper.CompressToJPEG(bitmap,outputFilePath);
@@ -505,20 +490,6 @@ var ImageHelper: ImgHelper? = ImgHelper(this)
 	```kotlin
 	//KOTLIN
 	var Iscompressed = ImageHelper!!.CompressToJPEG(bitmap, outputFilePath);
-	```
-	
-- ***rotateBitmap*** - *This method will rotate the image to preferred orientation.*
-	 ```java
-	//JAVA
-	Bitmap rotatedBm = ImageHelper.rotateBitmapDegree(nBm, RotationDegree);
-	/*
-	Bitmap rotateBitmapDegree(Bitmap bitmap,int Degree)
-		throws ImgException
-	*/
-	```
-  	```kotlin
-	//KOTLIN
-	var thumb = ImageHelper!!.rotateBitmapDegree(bitmap, RotationDegree);
 	```
 - **GetTiffForLastCapture** - Build Tiff output file from last captured set of images.
 	```java
@@ -572,6 +543,136 @@ var ImageHelper: ImgHelper? = ImgHelper(this)
 	//KOTLIN
 	var thumb = ImageHelper!!.BuildPDF(ImageCol,OutputTiffFilePath);
 	```
+>  **Recommended Settings:**
+>  - ImageQuality: `documentQuality`
+>  - DPI: `150` or `200`
+>  - LayoutType: `A4`
+>  - ResizeMode: `preserveAspectOnly`
+
+## 4. HumanFaceHelper
+
+QuickCapture SDK equipped with advanced face identification intelligence can accurately detect human faces within documents and match them precisely.**SDK needs to be activated using a proper license** with Config.License.Acivate(); for the plus features to initialise.
+
+```java
+//JAVA
+HumanFaceHelper humanFaceObj = new HumanFaceHelper(this);
+```
+
+```kotlin
+//Kotlin
+var humanFaceObj:HumanFaceHelper? = HumanFaceHelper(this)
+```
+
+Following are the options/methods available from the class **HumanFaceHelper** :
+
+-   **DetectHumanFaces** \- DetectHumanFaces Method from \*\*humanFaceObj \*\* will Identify human faces from provided image and return the detected details. .
+    
+	```java
+	//DetectHumanFaces will use callback function to return the result.
+	humanFaceObj.DetectHumanFaces(inputImage,detectHumanFacesCallBack);
+	*@param : inputImage "input image in Bitmap".
+	*@param : "A callback method to capture the detected human faces response".
+	   
+	function detectHumanFacesCallBack(resultJson) {
+		//Process the resultJson
+	}
+
+	//Or use lambda function
+	humanFaceObj.DetectHumanFaces(inputImage,resultJson -> {
+		//Detected response JSON
+	});
+	```
+	    
+	Following is a sample of response structure :
+	    
+	```json
+	{
+		 STATUS: true/false,
+		 //Detection status
+		 DESCRIPTION : "SUCCESS",
+		 //Success or failure description
+		 DOC_ID : 0,
+		 //Identifier/index of the used document.
+		 FACE_DATA :[
+		 //Collection of identified face data
+			 {
+				 ID : 0,
+				 //Identifier/index of face.
+				 LEFT : 0,
+				 TOP : 0,
+				 RIGHT : 0,
+				 BOTTOM : 0
+				 //Each location of face in document
+			} 
+		 ]
+	 }
+	```
+    
+-   **MatchHumanFaces** \- DetectHumanFaces Method from **humanFaceObj** \- With AI intelligence, analyses the provided face data and returns a response on whether the provided faces are of same human or not.Document Id and Face Id will be provided by DetectHumanFaces, and same can be used.
+    
+	```java
+	//MatchHumanFaces will use callback function to return the result.
+	humanFaceObj.MatchHumanFaces(DocId1,FaceId1,DocId2,FaceId2,matchHumanFacesCallBack);
+	*@param  "ID of first document"
+	*@param  "Face ID of first document"
+	*@param  "ID of second document"
+	*@param  "Face ID of second document".
+	*@param : "A callback method to capture the match human faces response".
+	   
+	function matchHumanFacesCallBack(resultJson) 	{
+		//Process the resultJson
+	}
+
+	//Or use lambda function
+	humanFaceObj.MatchHumanFaces(DocId1,FaceId1,DocId2,FaceId2,,resultJson -> {
+		//Detected response JSON
+	});
+	```
+	    
+	Following is a sample response structure :
+	    
+	```json
+	{
+		 STATUS: true/false,
+		 //Match status
+		 DESCRIPTION : "SUCCESS",
+		 //Success or failure description
+		 ACCURACY: 0,
+		 //Accuracy of match
+	 }
+	```
+### Face Match Accuracy Interpretation
+The match level is determined based on the accuracy percentage, which reflects the similarity between two facial images. The table below provides detailed descriptions for each match level.
+| **Match Percentage**  |  **Match Level**  |  **Description** |
+|--|--|--|
+| **90% - 100%** | ✅ **Highly Reliable Match** | Faces match with extremely high confidence. They are almost certainly the same person. Suitable for critical identification applications. |
+| **75% - 89%** | ✅ **Strong Match** | Faces matched successfully with a high probability of being the same person. Reliable for most identity verification use cases. |
+| **65% - 74%** | ⚠️ **Moderate Match** | Faces show good similarity, but further validation may be required. Manual verification is recommended before confirmation. |
+| **50% - 64%** | ⚠️ **Low Confidence Match** | Faces have some resemblance, but the similarity is not strong enough to confirm identity. Additional verification is needed. |
+| **0% - 49%** | ❌ **No Match** | Faces do not match. There is minimal similarity, and they are highly unlikely to be the same person. |
+
+### Usage of Results
+
+#### ✅ **Highly Reliable Match (90% - 100%)**
+-  **Best for**: Secure identity verification, biometric authentication, and critical decision-making.
+-  **Action**: **Automatic acceptance. No further review required.**
+
+#### ✅ **Strong Match (75% - 89%)**
+-  **Best for**: General identification scenarios where strong confidence is required.
+-  **Action**: **Safe for automatic approval** in most applications.
+
+#### ⚠️ **Moderate Match (65% - 74%)**
+-  **Best for**: Cases where additional review is acceptable before finalizing the decision.
+-  **Action**: **Manual verification recommended before confirming a match.**
+
+#### ⚠️ **Low Confidence Match (50% - 64%)**
+-  **Best for**: Situations requiring strict validation before acceptance.
+-  **Action**: **Use alternative verification methods. Do not rely on this score alone.**
+
+#### ❌ **No Match (0% - 49%)**
+-  **Best for**: Definitive rejection of mismatches.
+-  **Action**: **Automatically reject matches in this range.**
+
 ## 5. OpticalCodeHelper
 Following are the options/methods available from class **OpticalCodeHelper** :
 ```java
@@ -696,7 +797,15 @@ var opticalCodeObj : OpticalCodeHelper? = OpticalCodeHelper(this)
 		- LOG_CREATION_ERROR= **-108**;
 - Also with **Config.CaptureSupport.LastLogInfo** last logged exception or error details can be identified.
 
+# Notes
+### Regarding accuracy :
+
+The accuracy of face detection and matching technologies depends on input image quality, including factors such as image distortion, rotation angles, lighting conditions, and color consistency. While offline solutions effectively reduce manual effort and operational costs, they do not guarantee 100% reliability in all scenarios.
+
+This system enables on-device verification, efficiently identifying doubtful matches and flagging them for backend verification within the offline environment. By integrating backend validation, the system enhances reliability without relying on external APIs. Additionally, when a match achieves high accuracy as defined in the accuracy thresholds, the system can be considered reliable even without backend verification, making it a valuable solution for offline scenarios where external validation is limited.
+
+For use cases demanding exceptionally high accuracy and reliability, an API-based advanced system is recommended.
+
 **Extrieve** - *Your Expert in Document Management & AI Solutions.*
 
-[© 1996 - 2024 Extrieve Technologies](https://www.extrieve.com/)
-	
+[© 1996 - 2025 Extrieve Technologies](https://www.extrieve.com/)
