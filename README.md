@@ -585,8 +585,8 @@ Following are the options/methods available from the class **HumanFaceHelper** :
 	    
 	Following is a sample of response structure :
 	    
-	```json
-	{
+	```java
+    {
 		 STATUS: true/false,
 		 //Detection status
 		 DESCRIPTION : "SUCCESS",
@@ -605,7 +605,7 @@ Following are the options/methods available from the class **HumanFaceHelper** :
 				 //Each location of face in document
 			} 
 		 ]
-	 }
+	}
 	```
     
 -   **MatchHumanFaces** \- DetectHumanFaces Method from **humanFaceObj** \- With AI intelligence, analyses the provided face data and returns a response on whether the provided faces are of same human or not.Document Id and Face Id will be provided by DetectHumanFaces, and same can be used.
@@ -631,7 +631,7 @@ Following are the options/methods available from the class **HumanFaceHelper** :
 	    
 	Following is a sample response structure :
 	    
-	```json
+	```java
 	{
 		 STATUS: true/false,
 		 //Match status
@@ -639,7 +639,7 @@ Following are the options/methods available from the class **HumanFaceHelper** :
 		 //Success or failure description
 		 ACCURACY: 0,
 		 //Accuracy of match
-	 }
+	}
 	```
 ### Face Match Accuracy Interpretation
 The match level is determined based on the accuracy percentage, which reflects the similarity between two facial images. The table below provides detailed descriptions for each match level.
