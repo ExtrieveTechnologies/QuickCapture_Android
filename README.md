@@ -3,7 +3,7 @@
 <!-- <a align="center" href='https://play.google.com/store/apps/details?id=com.extrieve.exScan&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1' title="Click to download android app" target="_blank" rel="noopener noreferrer"><img align="center" width="150px" alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'/></a> -->
 
 
-## Document Scanning-Capture SDK ANDROID v4.0
+# QuickCapture v4.0
 QuickCapture Mobile Scanning SDK Specially designed for native ANDROID from [Extrieve](https://www.extrieve.com/).
 
 > It's not "**just**" a scanning SDK. It's a "**document**" 
@@ -40,9 +40,8 @@ repositories {
 //Then add implementation for SDK in dependencies in build.gradle (module:<yourmodulename>)
 dependencies {
   implementation 'com.extrieve.quickcapture:QCv4_PLUS:<SDK-VERSION>'
-  //latest version : 4.1.10
 }
-SDK-VERSION - Need to replace with the correct v4 series.
+//SDK-VERSION - Need to replace with the correct v4 series.
 ```
 
 Or Maven:
@@ -53,7 +52,7 @@ Or Maven:
   <artifactId>QCv4_PLUS</artifactId>
   <version>SDK-VERSION</version>
 </dependency>
-SDK-VERSION - Need to replace with the correct v4 series
+//SDK-VERSION - Need to replace with the correct v4 series
 ```
 
 Or can even integrate with the **.aar** library file and manually add the file dependency to the project/app.
@@ -65,7 +64,12 @@ Compatibility
  * **Minimum Android SDK**: QuickCapture v4 requires a minimum API level of 21.
  * **Target Android SDK**: QuickCapture v4 features supports **API 35**.
   * **Compiled SDK Version**: QuickCapture v4 compiled against **API 34**.Host application using this SDK should compiled against 34 or later
- 
+  ## Run-time requirement
+
+- [x] This SDK is designed to run on officially supported Android & iOS devices only.
+- [x] On Android, Google Play Services is mandatory.
+- [x] Supported CPU architectures: arm64-v8a and armeabi-v7a.
+- [x] Simulator and emulator environments are not supported.For testing on simulators, please contact the development support team to request a dedicated test version compatible with those environments.
 
 # API &  integration  Details 
 Available properties and method
