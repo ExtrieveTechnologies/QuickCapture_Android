@@ -69,6 +69,9 @@ public class MainActivity extends AppCompatActivity {
             SetConfig();
             OpenCameraActivity();
         });
+
+        //DEV_HELP : Finally Activate the license for advanced features
+        //activateLicense() // Activate the license for advanced features
     }
 
     /*DEV_HELP : Basic permission for App/SDK to work*/
@@ -99,14 +102,9 @@ public class MainActivity extends AppCompatActivity {
 
         ImageHelper.SetPageLayout(4);//A1-A7(1-7),PHOTO,CUSTOM,ID(8,9,10)
 
-        ImageHelper.SetImageQuality(1);//0,1,2 - Photo_Quality, Document_Quality, Compressed_Document
-
         ImageHelper.SetDPI(200);//int dpi_val = 100, 150, 200, 300, 500, 600;
 
         Config.CaptureSupport.DocumentCropping = Config.CaptureSupport.CroppingType.AssistedCapture;
-
-        Config.CaptureSupport.CaptureMode = Config.CaptureSupport.CaptureModes.CAMERA_CAPTURE_REVIEW;
-
 
         Config.CaptureSupport.ColorMode = Config.CaptureSupport.ColorModes.RBG;
 
@@ -198,6 +196,16 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Failed to open camera  -" + ex.getMessage(), Toast.LENGTH_LONG).show();
         }
 
+    }
+
+    /*DEV_HELP : Activates the license required for the SDK for advanced options
+     * Activates the license required for the SDK for advanced options.
+     * Replace `yourLicenseKey` with your actual license string.
+     * Optionally, you can fetch the key from an online source for dynamic updates.
+     */
+    private void activateLicense() {
+        String licenseKey = "Your-License-String-Here" ; // TODO: Replace with actual key or fetch from secure server
+        Config.License.Activate(this, licenseKey);
     }
 
 }
