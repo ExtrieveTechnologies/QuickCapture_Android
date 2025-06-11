@@ -28,6 +28,7 @@ import com.extrieve.quickcapture.sdk.ImgHelper;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -61,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         /*DEV_HELP : assign registerForActivityResult for getting result from CameraHelper*/
         captureActivityResultLauncher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
-                result -> handleCaptureActivityResult(result));
+                this::handleCaptureActivityResult);
 
         /*DEV_HELP : Capture Document with SDK Button click handler*/
         findViewById(R.id.getPictureButton).setOnClickListener(v -> {
@@ -102,10 +103,15 @@ public class MainActivity extends AppCompatActivity {
 
         ImageHelper.SetDPI(200);//int dpi_val = 100, 150, 200, 300, 500, 600;
 
+        Config.CaptureSupport.DocumentCropping = Config.CaptureSupport.CroppingType.AssistedCapture;
+
+        Config.CaptureSupport.CaptureMode = Config.CaptureSupport.CaptureModes.CAMERA_CAPTURE_REVIEW;
+
+
+        Config.CaptureSupport.ColorMode = Config.CaptureSupport.ColorModes.RBG;
+
         //can set output file path
         Config.CaptureSupport.OutputPath = BuildStoragePath();
-
-        Config.CaptureSupport.DocumentCropping = Config.CaptureSupport.CroppingType.AutoCrop;
 
         Config.CaptureSupport.EnableFlash = true;
 
@@ -116,8 +122,7 @@ public class MainActivity extends AppCompatActivity {
     /*DEV_HELP : BuildStoragePath*/
     private String BuildStoragePath() {
         ContextWrapper c = new ContextWrapper(this);
-        String path = c.getExternalFilesDir(".GoNoGoImages").getAbsolutePath();
-        return path;
+        return Objects.requireNonNull(c.getExternalFilesDir(".GoNoGoImages")).getAbsolutePath();
     }
 
     /*DEV_HELP : handleCaptureActivityResult definition*/
@@ -130,10 +135,11 @@ public class MainActivity extends AppCompatActivity {
             Intent data = result.getData();
             Boolean Status = null;
             if (data != null) {
-                Status = (Boolean) data.getExtras().get("STATUS");
+                Status = (Boolean) Objects.requireNonNull(data.getExtras()).get("STATUS");
             }
+            assert data != null;
             String Description = (String) data.getExtras().get("DESCRIPTION");
-            if (!Status) {
+            if (Boolean.FALSE.equals(Status)) {
                 String imageCaptureLog = "Description : " + Description +
                         ".Exception: " + Config.CaptureSupport.LastLogInfo;
                 Log.d("INFO", imageCaptureLog);
