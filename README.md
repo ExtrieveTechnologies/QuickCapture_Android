@@ -3,8 +3,11 @@
 <!-- <a align="center" href='https://play.google.com/store/apps/details?id=com.extrieve.exScan&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1' title="Click to download android app" target="_blank" rel="noopener noreferrer"><img align="center" width="150px" alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'/></a> -->
 
 
-# QuickCapture v4.0
-QuickCapture Mobile Scanning SDK Specially designed for native ANDROID from [Extrieve](https://www.extrieve.com/).
+# v4.0
+QuickCapture Mobile Document Scanning & imaging SDK Specially designed for native ANDROID from [Extrieve](https://www.extrieve.com/).
+
+Now powered by **KIMORA**, our advanced AI model for intelligent document detection.
+Trained on a vast dataset of real-world documents, KIMORA delivers precise and reliable edge detection using a custom-designed AI architecture.
 
 > It's not "**just**" a scanning SDK. It's a "**document**" 
 scanning/capture SDK evolved with **Best Quality**, **Highest Possible Compression**, **Image Optimisation**, keeping output quality of the document in mind.
