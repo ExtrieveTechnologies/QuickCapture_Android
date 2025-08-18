@@ -9,7 +9,7 @@ android {
     defaultConfig {
         applicationId "com.extrieve.quickcapture.docappjava"
         minSdk 21
-        targetSdk 33
+        targetSdk 36
         versionCode 1
         versionName "1.0"
 
@@ -33,6 +33,5 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.5.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    /*DEV_HELP : link the preferred SDK version from maven repo by extrieve.*/
-    implementation 'com.extrieve.quickcapture:QCv3:3.0.5'
+    implementation 'com.extrieve.quickcapture:QCv2:2.1.2'
 }
