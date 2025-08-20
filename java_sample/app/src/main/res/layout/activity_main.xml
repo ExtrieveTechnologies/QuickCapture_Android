@@ -55,11 +55,11 @@
         <Button
             android:id="@+id/getPictureButton"
             style="@style/Widget.AppCompat.Button"
-            android:layout_width="70dp"
+            android:layout_width="100dp"
             android:layout_height="70dp"
             android:layout_gravity="center_vertical|start"
             android:padding="5dp"
-            android:text="Capture &amp; Build PDF"
+            android:text="Capture - Build PDF &amp; TIFF"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
         <Button
@@ -76,7 +76,7 @@
         <Button
             android:id="@+id/loadFromGalleryBtn"
             style="@style/Widget.AppCompat.Button"
-            android:layout_width="70dp"
+            android:layout_width="100dp"
             android:layout_height="70dp"
             android:layout_gravity="center_vertical|right"
             android:padding="5dp"

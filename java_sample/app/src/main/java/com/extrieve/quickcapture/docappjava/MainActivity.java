@@ -51,6 +51,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -197,6 +198,7 @@ public class MainActivity extends AppCompatActivity {
                     notifyGalleryOfNewImages(fileCollection);
                     // Automatically build a PDF from the captured images.
                     buildPdfFromCapture();
+                    buildTiffFromLastCapture();
                 }
             }
         });
@@ -423,6 +425,53 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+
+    /**
+     * Builds a multi-page TIFF file from the last captured set.
+     * The file is first created in the app's private storage, then saved to the user's
+     * public "Downloads" folder.
+     */
+    private void buildTiffFromLastCapture() {
+        if (fileCollection == null || fileCollection.isEmpty()) {
+            Toast.makeText(this, "Pick one or more images first.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // The temporary TIFF will be created in the app's private directory.
+        File docsDir = getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS);
+        if (docsDir == null) docsDir = getFilesDir();
+        if (!docsDir.exists()) docsDir.mkdirs();
+        final String outTiffPath = new File(docsDir, "Output_" + UUID.randomUUID() + ".tiff").getAbsolutePath();
+
+        showProgress(true);
+        // DEV_HELP: Heavy operations like file creation must be done on a background thread
+        // to avoid freezing the UI. Executors.newSingleThreadExecutor() is a simple way to do this.
+        Executors.newSingleThreadExecutor().execute(() -> {
+            String result;
+            try {
+                // Call the SDK method buildTiffForLastCapture
+                result = cameraHelper.buildTiffForLastCapture(outTiffPath);
+            } catch (Throwable t) {
+                result = "FAILED:::Exception " + t.getMessage();
+                Log.e(TAG, "TIFF build failed", t);
+            }
+
+            final String finalResult = result;
+            // DEV_HELP: Update the UI on the main thread after the background task is complete.
+            runOnUiThread(() -> {
+                showProgress(false);
+                if (finalResult != null && finalResult.startsWith("SUCCESS:::")) {
+                    String tiffPath = finalResult.substring("SUCCESS:::".length());
+                    Toast.makeText(this, "TIFF created successfully!", Toast.LENGTH_LONG).show();
+                    // Save the final file to a user-accessible location.
+                    saveFileToDownloads(tiffPath);
+                } else {
+                    Toast.makeText(this, "Failed to create TIFF: " + finalResult, Toast.LENGTH_LONG).show();
+                }
+            });
+        });
+    }
+
     /**
      * Builds a PDF file from the images captured by the camera.
      */
@@ -516,11 +565,11 @@ public class MainActivity extends AppCompatActivity {
 
             Uri destinationUri = resolver.insert(MediaStore.Downloads.EXTERNAL_CONTENT_URI, contentValues);
             if (destinationUri == null) {
-                Toast.makeText(this, "Failed to create file in Downloads.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "QC : Failed to create file in Downloads.", Toast.LENGTH_SHORT).show();
                 return;
             }
 
-            try (InputStream in = new FileInputStream(sourceFile);
+            try (InputStream in = Files.newInputStream(sourceFile.toPath());
                  OutputStream out = resolver.openOutputStream(destinationUri)) {
                 if (out == null) return;
                 byte[] buf = new byte[8192];
@@ -528,9 +577,9 @@ public class MainActivity extends AppCompatActivity {
                 while ((len = in.read(buf)) > 0) {
                     out.write(buf, 0, len);
                 }
-                Toast.makeText(this, "File saved to Downloads folder.", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Tiff file saved to Downloads folder.", Toast.LENGTH_LONG).show();
             } catch (IOException e) {
-                Log.e(TAG, "Failed to save file to Downloads", e);
+                Log.e(TAG, "QC : Failed to save file to Downloads", e);
                 Toast.makeText(this, "Error saving file.", Toast.LENGTH_SHORT).show();
             }
         } else {
