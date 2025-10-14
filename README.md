@@ -65,7 +65,7 @@ Compatibility
 -------------
  * **JAVA 17 Support**: QuickCapture v4 requires JAVA version 17 support for the application.
  * **Minimum Android SDK**: QuickCapture v4 requires a minimum API level of 21.
- * **Target Android SDK**: QuickCapture v4 features supports **API 35**.
+ * **Target Android SDK**: QuickCapture v4 features supports **API 36**.
   * **Compiled SDK Version**: QuickCapture v4 compiled against **API 34**.Host application using this SDK should compiled against 34 or later
   ## Run-time requirement
 
