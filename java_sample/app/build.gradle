@@ -35,5 +35,5 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.2.1'
 
     /*DEV_HELP : link the preferred SDK version from maven repo by extrieve.*/
-    implementation 'com.extrieve.quickcapture:QCv4_PLUS:4.2.7'
+    implementation 'com.extrieve.quickcapture:QCv4_PLUS:4.2.21'
 }
