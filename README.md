@@ -33,7 +33,7 @@ Access / Download
 You can use this SDK in any Android project simply by using Gradle :
 
 ```java
-//Add expack central repo in settings.gradle
+//Add expack central repo in settings.gradle (Project Settings)
 repositories {
   google()
   mavenCentral()
