@@ -815,4 +815,23 @@ For use cases demanding exceptionally high accuracy and reliability, an API-base
 
 **Extrieve** - *Your Expert in Document Management & AI Solutions.*
 
-[© 1996 - 2025 Extrieve Technologies](https://www.extrieve.com/)
+---
+
+### 🔹 Explore & Connect
+
+- 🌐 **Official Website**  
+  👉 https://www.extrieve.com
+
+- 📱 **Mobile SDK Demo App**  
+  👉 https://play.google.com/store/apps/details?id=com.extrieve.demo
+
+- 💬 **Community Support & Discussions**  
+  👉 https://github.com/orgs/ExtrieveTechnologies/discussions
+
+---
+
+<p align="center">
+  <sub>
+    © 1996–2025 <a href="https://www.extrieve.com/">Extrieve Technologies</a>. All rights reserved.
+  </sub>
+</p>
