@@ -361,6 +361,25 @@ The SDK includes a supporting class called for static configuration. This class 
 	//Kotlin
 	Config!!.CaptureSupport!!.CaptureSound = true;
 	```
+- **CaptureReview**  -  To Enables or disables review after capture.
+	```java
+	//JAVA
+	Config.CaptureSupport.CaptureReview = true; //By default it is enabled
+	```
+	```kotlin
+	//Kotlin
+	Config!!.CaptureSupport!!.CaptureReview = true; //By default it is enabled
+	```
+
+- **ShowCaptureCountAndLimit**  -  Displays the count and limit of captures.
+	```java
+	//JAVA
+	Config.CaptureSupport.ShowCaptureCountAndLimit = true; //By default it is enabled
+	```
+	```kotlin
+	//Kotlin
+	Config!!.CaptureSupport!!.ShowCaptureCountAndLimit = true; //By default it is enabled
+	```
 
 - **CameraToggle**  -  Toggle  camera  between  front  and  back.
 	```java
@@ -377,6 +396,82 @@ The SDK includes a supporting class called for static configuration. This class 
 	//ENABLE_BACK_DEFAULT (1) - Enable camera toggle option with Front camera by default.
 	//ENABLE_FRONT_DEFAULT (2) - Enable camera toggle option with Back camera  by default.
 	```
+
+- **EnableTorchOnLowLight**  -  Enables or Disable automatic torch turning on when low light detected.
+	```java
+	//JAVA
+	Config.CaptureSupport.EnableTorchOnLowLight = false; // By Default it is disabled.
+	```
+	```kotlin
+	//Kotlin
+
+	Config!!.CaptureSupport!!.EnableTorchOnLowLight = false; // By Default it is disabled.
+	```
+
+- **PerspectiveCorrection**  -  Applies perspective correction if enabled after crop.
+	```java
+	//JAVA
+	Config.CaptureSupport.PerspectiveCorrection = true; // By Default it is enabled.
+	```
+	```kotlin
+	//Kotlin
+
+	Config!!.CaptureSupport!!.PerspectiveCorrection = true; // By Default it is enabled.
+	```
+
+- **DocumentCropping**  -  Specifies the cropping behavior after capturing an image.
+	```java
+	//JAVA
+	//CroppingType options are as follows:
+	//AutoCapture - Automatically crops the captured image.
+	//AssistedCapture - Provides assistance to the user for cropping.
+	//AutoCrop - Automatically detects and crops the content.
+	//Disabled - No cropping is performed.
+	Config.CaptureSupport.DocumentCropping = Config.CaptureSupport.CroppingType.AssistedCapture; // Default value.
+	```
+	```kotlin
+	//Kotlin
+	//CroppingType options are as follows:
+	//AutoCapture - Automatically crops the captured image.
+	//AssistedCapture - Provides assistance to the user for cropping.
+	//AutoCrop - Automatically detects and crops the content.
+	//Disabled - No cropping is performed.
+	Config!!.CaptureSupport!!.DocumentCropping = Config.CaptureSupport.CroppingType.AssistedCapture; // Default value.
+	```
+
+- **CropFilter**  -  Specifies the type of image filter to apply after cropping.
+	```java
+	//JAVA
+	//CropImageFilterType options are as follows:
+	//NONE - No image enhancement.
+	//ENHANCE - Enhances the image quality.
+    //GRAY - Converts the image to grayscale.
+    //XEROX - Applies a Xerox photocopy style effect.
+	Config.CaptureSupport.CropFilter = Config.CaptureSupport.CropImageFilterType.NONE; //Default value
+	```
+	```kotlin
+	//Kotlin
+	//CropImageFilterType options are as follows:
+	//NONE - No image enhancement.
+	//ENHANCE - Enhances the image quality.
+    //GRAY - Converts the image to grayscale.
+    //XEROX - Applies a Xerox photocopy style effect.
+	Config!!.CaptureSupport!!.CropFilter = Config.CaptureSupport.CropImageFilterType.NONE; // Default value.
+	```
+
+
+**Review** - Contains all the Review related configurations. **Config.CaptureSupport.Review**   contains various configurations as follows:
+- ***EnableAutoCorrectDocAngle*** - *Toggle the auto rotation feature when image is attached to the review screen.*
+	```java
+ 	//JAVA
+	Config.CaptureSupport.Review.EnableAutoCorrectDocAngle = false; //to disable this feature
+	```
+ 	```kotlin
+  	//Kotlin
+	Config!!.CaptureSupport!!.Review!!.EnableAutoCorrectDocAngle = false;
+	```
+	 > **Note** : For any scenario (Normal photo capture) if auto rotation is not needed then host application should disbale it using this config.
+	 
 
 **Common** - Contains various configurations as follows:
 
