@@ -758,7 +758,7 @@ String myPin = DeviceInfo.generateDigiPin(12.9716, 77.5946);
 
 ---
 
-## 7. DeviceGuard - Device seccurity class
+## 5. DeviceGuard - Device seccurity class
 
 **DeviceGuard** is a security engine designed for Banking, Insurance, and Enterprise apps. It prevents fraud by detecting environment tampering (Rooting, Emulators, GPS Spoofing) before a document is captured.
 
@@ -844,7 +844,7 @@ guard.stopMonitoring();
 | **`SCREEN_RECORDING`** | (Android 15+) User started recording the screen. |
 
 
-## 4. HumanFaceHelper
+## 6. HumanFaceHelper
 
 QuickCapture SDK equipped with advanced face identification intelligence can accurately detect human faces within documents and match them precisely.**SDK needs to be activated using a proper license** with Config.License.Acivate(); for the plus features to initialise.
 
@@ -968,7 +968,8 @@ The match level is determined based on the accuracy percentage, which reflects t
 -  **Best for**: Definitive rejection of mismatches.
 -  **Action**: **Automatically reject matches in this range.**
 
-## 5. OpticalCodeHelper
+## 7. OpticalCodeHelper - Class for QR Code and BAR code 
+
 Following are the options/methods available from class **OpticalCodeHelper** :
 ```java
 //JAVA
