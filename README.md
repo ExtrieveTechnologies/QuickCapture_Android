@@ -14,10 +14,14 @@ scanning/capture SDK evolved with **Best Quality**, **Highest Possible Compressi
 
 > Control **DPI**,**Layout** & **Size** of output images and can convert them into **PDF & TIFF**
 
+> Automatically detect and correct the orientation/rotation of captured documents using the KIMORA AI v2 engine.
+
 > **QR code** & **BAR Code** Scanning & Generation
 
 > **Developer-friendly** & **Easy to integrate** SDK.
 
+> **DeviceGuard** for Anti-Spoofing (Root, Emulator, Mock Location detection) and **DeviceInfo** for offline **DigiPin** generation and hardware intelligence.
+ 
 > **Works entirely offline**, locally on the device, with **no data transferred to any server or third party**.  
 
 *For reduced build size if needed, an initial internet connection may optionally be required to fetch ML data or resource files, depending on the specific integration and features used by the consumer application*
@@ -98,7 +102,7 @@ Based on the requirement, any one or all classes can be used.And need to import 
     import  com.extrieve.quickcapture.sdk.ImgException;
    ```
 ---
-## 1. CameraHelper
+## 1. CameraHelper - The document capture class
 This core class will be implemented as an activity.This class can be initialized as intent.
 ```java
 //JAVA
@@ -508,7 +512,7 @@ The SDK includes a supporting class called for static configuration. This class 
 	 
 	 
 
-## 3. ImgHelper
+## 3. ImgHelper - The imaging class
 Following are the options/methods available from class **ImgHelper** :
 ```java
 //JAVA
@@ -650,6 +654,195 @@ var ImageHelper: ImgHelper? = ImgHelper(this)
 >  - DPI: `150` or `200`
 >  - LayoutType: `A4`
 >  - ResizeMode: `preserveAspectOnly`
+
+
+
+## 4. DeviceInfo - The device info class.
+
+The `DeviceInfo` class provides detailed system specifications, real-time battery status, and precise location intelligence. It features a built-in **Offline Engine** for generating **DigiPins** (India Post's digital addressing system) from coordinates, eliminating the need for external APIs.
+
+### Initialization
+
+```java
+// JAVA
+DeviceInfo deviceInfo = DeviceInfo.getInstance(this);
+
+```
+
+```kotlin
+// KOTLIN
+val deviceInfo = DeviceInfo.getInstance(this)
+
+```
+
+### A. Hardware & System Specs
+
+Retrieve a comprehensive map of device details (RAM, Battery, CPU, OS). This is a **Synchronous** (instant) call.
+
+```java
+Map<String, Object> specs = deviceInfo.getSpecs().getDetails();
+
+```
+
+#### 📋 Response Data (Specs Map)
+
+| Key | Data Type | Description | Example |
+| --- | --- | --- | --- |
+| **`manufacturer`** | `String` | Device Manufacturer | `"Google"` |
+| **`model`** | `String` | Device Model Name | `"Pixel 7"` |
+| **`os_release`** | `String` | Android OS Version | `"14"` |
+| **`sdk_int`** | `int` | Android API Level | `34` |
+| **`cpu_hardware`** | `String` | Processor Chipset Name | `"qcom"` |
+| **`ram_total_mb`** | `long` | Total RAM in MB | `7600` |
+| **`storage_free_gb`** | `long` | Free Internal Storage in GB | `128` |
+| **`battery_pct`** | `int` | Battery Level (0-100) | `85` |
+| **`battery_is_charging`** | `boolean` | Charging Status | `true` |
+| **`screen_density_dpi`** | `int` | Screen Density (DPI) | `480` |
+
+---
+
+### B. Location & DigiPin (Asynchronous)
+
+Fetches GPS coordinates and automatically generates the **DigiPin** and **Postal Code**.
+
+> **Prerequisite:** Parent app must handle `ACCESS_FINE_LOCATION` & `ACCESS_COARSE_LOCATION` permissions.
+
+```java
+// JAVA
+if (deviceInfo.hasLocationPermissions()) {
+    deviceInfo.getCurrentLocation(new DeviceInfo.LocationCallback() {
+        @Override
+        public void onSuccess(Map<String, Object> data) {
+            String digiPin = (String) data.get("digi_pin");
+            String postalCode = (String) data.get("postal_code");
+            Log.d("Extrieve", "DigiPin: " + digiPin);
+        }
+
+        @Override
+        public void onError(String error) {
+            Log.e("Extrieve", "Location Error: " + error);
+        }
+    });
+}
+
+```
+
+#### 📋 Response Data (Location Map)
+
+| Key | Data Type | Description | Example |
+| --- | --- | --- | --- |
+| **`latitude`** | `double` | GPS Latitude | `12.9716` |
+| **`longitude`** | `double` | GPS Longitude | `77.5946` |
+| **`accuracy`** | `float` | Accuracy radius (meters) | `12.5` |
+| **`digi_pin`** | `String` | **India Post Digital Address** | `"85-12-3456"` |
+| **`postal_code`** | `String` | Standard PIN Code (Network) | `"560001"` |
+| **`time`** | `long` | Timestamp of fix | `1705648293000` |
+
+---
+
+### C. DigiPin Utilities
+
+Helper methods to handle DigiPins without full location requests.
+
+| Method | Type | Description |
+| --- | --- | --- |
+| `generateDigiPin(lat, lon)` | **Synchronous** | Instantly converts coordinates to a DigiPin string. |
+| `getCurrentDigiPin(callback)` | **Asynchronous** | Fetches location internally and returns just the DigiPin string. |
+
+```java
+// Example: Convert known coordinates instantly
+String myPin = DeviceInfo.generateDigiPin(12.9716, 77.5946);
+// Output: "85-12-3456"
+
+```
+
+---
+
+## 7. DeviceGuard - Device seccurity class
+
+**DeviceGuard** is a security engine designed for Banking, Insurance, and Enterprise apps. It prevents fraud by detecting environment tampering (Rooting, Emulators, GPS Spoofing) before a document is captured.
+
+### Initialization
+
+```java
+// JAVA
+DeviceGuard guard = DeviceGuard.getInstance(this);
+
+```
+
+```kotlin
+// KOTLIN
+val guard = DeviceGuard.getInstance(this)
+
+```
+
+### A. Security Report (Pre-Check)
+
+Run this check **before** launching the camera to ensure the device is trusted.
+
+```java
+Map<String, Object> report = guard.getSecurityReport();
+if ((boolean) report.get("isRooted")) {
+    // Block User
+}
+
+```
+
+#### 📋 Response Data (Security Map)
+
+| Key | Data Type | Description | Severity |
+| --- | --- | --- | --- |
+| **`isRooted`** | `boolean` | `true` if device is Rooted (Su/Magisk). | 🔴 Critical |
+| **`isEmulator`** | `boolean` | `true` if running on a Simulator. | 🔴 Critical |
+| **`isDevOptionsEnabled`** | `boolean` | `true` if Developer Options are ON. | 🟠 High |
+| **`isAdbEnabled`** | `boolean` | `true` if USB Debugging is ON. | 🟠 High |
+| **`isVpnActive`** | `boolean` | `true` if VPN is masking the IP. | 🟡 Medium |
+
+### B. Anti-Spoofing (Mock Location)
+
+Detect if the GPS coordinates provided by the device are fake (Mock Location).
+
+```java
+// Pass the location object received from DeviceInfo or LocationManager
+boolean isFake = guard.isLocationSpoofed(locationObject); 
+if (isFake) {
+    // Reject the capture - User is faking location
+}
+
+```
+
+### C. Screen Protection (Privacy)
+
+Prevents the QuickCapture screen from being recorded or captured via screenshots. Video recordings will result in a **black screen**.
+
+```java
+// Call in onCreate() of your Activity
+guard.enableScreenProtection(this);
+
+```
+
+### D. Real-Time Monitoring
+
+Listen for threats while the app is running (e.g., user toggles VPN or Developer settings during a session).
+
+```java
+guard.startMonitoring((threatType, message) -> {
+    Log.w("Security", "Threat: " + threatType);
+});
+
+// Stop monitoring when done
+guard.stopMonitoring();
+
+```
+
+#### 📋 Threat Events
+
+| Threat Type | Trigger Condition |
+| --- | --- |
+| **`VPN_ACTIVATED`** | User connected to a VPN. |
+| **`DEV_OPTIONS_ENABLED`** | User enabled Developer Options in settings. |
+| **`SCREEN_RECORDING`** | (Android 15+) User started recording the screen. |
+
 
 ## 4. HumanFaceHelper
 
