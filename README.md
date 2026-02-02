@@ -771,7 +771,7 @@ String myPin = DeviceInfo.generateDigiPin(12.9716, 77.5946);
 
 ---
 
-## 5. DeviceGuard - Device seccurity class
+## 5. DeviceGuard - Device security class
 
 **DeviceGuard** is a security engine designed for Banking, Insurance, and Enterprise apps. It prevents fraud by detecting environment tampering (Rooting, Emulators, GPS Spoofing) before a document is captured.
 
@@ -799,6 +799,10 @@ if ((boolean) report.get("isRooted")) {
     // Block User
 }
 
+if ((boolean) report.get("isLocationSpoofed")) {
+    // Reject the capture - User is faking location
+}
+
 ```
 
 #### 📋 Response Data (Security Map)
@@ -806,35 +810,30 @@ if ((boolean) report.get("isRooted")) {
 | Key | Data Type | Description | Severity |
 | --- | --- | --- | --- |
 | **`isRooted`** | `boolean` | `true` if device is Rooted (Su/Magisk). | 🔴 Critical |
+| **`isLocationSpoofed`**| `boolean` | `true` if device is using Mock/Fake GPS location. |  🔴 Critical|
+| **`locationMessage`**| `String`| Diagnostic message for the location spoofing check.| 🔴 Critical|
 | **`isEmulator`** | `boolean` | `true` if running on a Simulator. | 🔴 Critical |
 | **`isDevOptionsEnabled`** | `boolean` | `true` if Developer Options are ON. | 🟠 High |
 | **`isAdbEnabled`** | `boolean` | `true` if USB Debugging is ON. | 🟠 High |
 | **`isVpnActive`** | `boolean` | `true` if VPN is masking the IP. | 🟡 Medium |
 
-### B. Anti-Spoofing (Mock Location)
-
-Detect if the GPS coordinates provided by the device are fake (Mock Location).
-
-```java
-// Pass the location object received from DeviceInfo or LocationManager
-boolean isFake = guard.isLocationSpoofed(locationObject); 
-if (isFake) {
-    // Reject the capture - User is faking location
-}
-
-```
-
-### C. Screen Protection (Privacy)
+### B. Screen Protection (Privacy)
 
 Prevents the QuickCapture screen from being recorded or captured via screenshots. Video recordings will result in a **black screen**.
 
 ```java
-// Call in onCreate() of your Activity
+// Enable screen protection (call in onCreate() of your Activity)
 guard.enableScreenProtection(this);
 
 ```
+To turn off screen protection when it’s no longer needed:
+```java
+// Disable screen protection
+guard.disableScreenProtection(this);
 
-### D. Real-Time Monitoring
+```
+
+### C. Real-Time Monitoring
 
 Listen for threats while the app is running (e.g., user toggles VPN or Developer settings during a session).
 
