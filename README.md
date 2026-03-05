@@ -16,8 +16,9 @@
   <a href="https://contact.extrieve.com?ptype=QC-Android"><img src="https://img.shields.io/badge/Contact-Talk%20to%20Us-success?style=flat&logo=maildotru&logoColor=white" alt="Contact" /></a>
 </p>
 
-# Extrieve QuickCapture v4.0
+# Extrieve QuickCapture v4.2
 <img src="https://img.shields.io/badge/AI-KIMORA%20AI%20v3-0A66C2?style=for-the-badge&logo=openai&logoColor=white" />
+
 QuickCapture Mobile Document Scanning, Imaging & Seccurity SDK Specially designed for native ANDROID from [Extrieve](https://www.extrieve.com/).
 
 Now powered by **KIMORA Ai V2**, our advanced AI model for intelligent document detection.
