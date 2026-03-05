@@ -10,7 +10,7 @@ android {
     defaultConfig {
         applicationId "com.extrieve.quickcapture.docappkotlin"
         minSdk 21
-        targetSdk 35
+        targetSdk 36
         versionCode 1
         versionName "1.1"
 
@@ -40,5 +40,5 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.2.1'
 
     /*DEV_HELP : link the preferred SDK version from maven repo by extrieve.*/
-    implementation 'com.extrieve.quickcapture:QCv4_PLUS:4.2.21'
+    implementation 'com.extrieve.quickcapture:QCv4_PLUS:4.2.30'
 }
