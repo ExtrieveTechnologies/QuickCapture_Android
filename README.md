@@ -5,16 +5,10 @@
 <p align="left">
   <a href="https://github.com/ExtrieveTechnologies"><img src="https://img.shields.io/badge/GitHub-Extrieve%20Org-181717?style=flat&logo=github" alt="GitHub Org" /></a>
   <a href="https://github.com/ExtrieveTechnologies/QuickCapture"><img src="https://img.shields.io/badge/Repo-QuickCapture-blue?style=flat&logo=github" alt="QuickCapture Repo" /></a>
-  <a href="https://www.extrieve.com"><img src="https://img.shields.io/badge/Website-extrieve.com-0A66C2?style=flat&logo=google-chrome&logoColor=white" alt="Web" /></a>
-  <a href="https://www.linkedin.com/company/extrieve"><img src="https://img.shields.io/badge/LinkedIn-Extrieve-0A66C2?style=flat&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
-  <a href="https://blog.extrieve.com/"><img src="https://img.shields.io/badge/Blog-Extrieve%20Insights-FF6F00?style=flat&logo=blogger&logoColor=white" alt="Blog" /></a>
+  <a href="https://github.com/orgs/ExtrieveTechnologies/discussions/categories/technical-support?discussions_q="><img src="https://img.shields.io/badge/Community-Discussions & Technical support-purple?style=flat&logo=github" alt="Community" /></a>
+  <a href="https://contact.extrieve.com?ptype=QC-Home"><img src="https://img.shields.io/badge/Contact-Talk%20to%20Us-success?style=flat&logo=maildotru&logoColor=white" alt="Contact" /></a>
 </p>
 
-<p align="left">
-  <a href="https://github.com/orgs/ExtrieveTechnologies/discussions"><img src="https://img.shields.io/badge/Community-Discussions-purple?style=flat&logo=github" alt="Community" /></a>
-  <a href="https://github.com/badges/shields/discussions" alt="Discussions"><img src="https://img.shields.io/github/discussions/badges/shields" /></a>
-  <a href="https://contact.extrieve.com?ptype=QC-Android"><img src="https://img.shields.io/badge/Contact-Talk%20to%20Us-success?style=flat&logo=maildotru&logoColor=white" alt="Contact" /></a>
-</p>
 
 # Extrieve QuickCapture v4.2
 <img src="https://img.shields.io/badge/AI-KIMORA%20AI%20v3-0A66C2?style=for-the-badge&logo=openai&logoColor=white" />
