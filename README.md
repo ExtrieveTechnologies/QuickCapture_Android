@@ -4,7 +4,7 @@
 
 # QuickCapture Android SDK: Document Scanning for Native Android Apps
 
-**QuickCapture for Android** (v4.2) is Extrieve's document scanning, imaging and security SDK for native Android apps written in Java or Kotlin. It captures documents with the device camera, detects edges and corrects the document angle with Extrieve's KIMORA AI document detection, then crops, optimises and compresses the image and outputs JPEG, PDF or TIFF.
+**QuickCapture for Android** (v4.2) is Extrieve's document scanning, imaging and security SDK for native Android apps written in Java or Kotlin. It captures documents with the device camera, detects edges and corrects the document angle with Extrieve's KIMORA AI v3 document detection, then crops, optimises and compresses the image and outputs JPEG, PDF or TIFF.
 
 [Product page](https://www.extrieve.com/platforms/quickcapture/) · [Documentation](https://docs.extrieve.in/) · [All platforms](https://github.com/ExtrieveTechnologies/QuickCapture) · [Android demo app](https://play.google.com/store/apps/details?id=com.extrieve.demo) · [Discussions](https://github.com/orgs/ExtrieveTechnologies/discussions/categories/technical-support) · [Contact](https://www.extrieve.com/contact/)
 
